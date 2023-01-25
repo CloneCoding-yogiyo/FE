@@ -1,11 +1,15 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
-
+import Store from '../components/Store';
+import SearchHeader from '../components/SearchHeader';
 export default function StoreList() {
   return (
     <div>
       <TopBar></TopBar>
-      <div>가게리스트</div>
+      <div>{/* <SearchHeader></SearchHeader> */}</div>
+      <div>
+        <Store></Store>
+      </div>
     </div>
   );
 }
