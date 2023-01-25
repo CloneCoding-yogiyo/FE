@@ -4,7 +4,8 @@ import TopBar from '../components/TopBar';
 export default function Login() {
   return (
     <div>
-      <TopBar></TopBar>ㅎ
+      <TopBar></TopBar>
+      <div>로그인</div>
     </div>
   );
 }
