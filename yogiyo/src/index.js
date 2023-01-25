@@ -4,21 +4,19 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
+//page 임포트
 import App from './App';
-
 import NotFound from './pages/NotFound';
-import Home from './pages/Home';
-import Menu from './pages/Menu';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import StoreList from './pages/StoreList';
 import OrderCheck from './pages/OrderCheck';
-import OrderChoice from './pages/OrderChoice';
 import OrderComplete from './pages/OrderComplete';
-import MembershipSignUp from './pages/MembershipSignUp';
-import MembershipLogin from './pages/MembershipLogin';
-import { CookiesProvider } from 'react-cookie';
-import { Provider } from 'react-redux';
-import store from './redux/config/configStore';
-import Admin from './pages/Admin';
-import PasswordProtectedPage from './pages/PasswordProtectedPage';
+
+// 리덕스, 스토어, 쿠키,
+// import { CookiesProvider } from 'react-cookie';
+// import { Provider } from 'react-redux';
+// import store from './redux/config/configStore';
 
 const router = createBrowserRouter([
   {
@@ -26,47 +24,24 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { index: true, element: <Home /> },
-      { path: 'Menu/:takeOutId', element: <Menu /> },
-
-      { path: 'Menu/OrderCheck/:takeOutId', element: <OrderCheck /> },
-      {
-        path: 'Menu/OrderCheck/OrderChoice/:takeOutId',
-        element: <OrderChoice />,
-      },
-      {
-        path: 'Menu/OrderChoice/OrderComplete/:takeOutId',
-        element: <OrderComplete />,
-      },
-      {
-        path: 'Menu/OrderChoice/MembershipSignUp/:takeOutId',
-        element: <MembershipSignUp />,
-      },
-      {
-        path: 'Menu/OrderChoice/MembershipLogin/:takeOutId',
-        element: <MembershipLogin />,
-      },
-      {
-        path: 'Admin/',
-        element: <Admin />,
-      },
-      {
-        path: 'PasswordProtectedPage/',
-        element: <PasswordProtectedPage />,
-      },
+      { index: true, element: <Login /> },
+      { path: 'SignUp', element: <SignUp /> },
+      { path: 'StoreList', element: <StoreList /> },
+      { path: 'StoreList/:takeOutId', element: <OrderCheck /> },
+      { path: 'StoreList/OrderComplete', element: <OrderComplete /> },
     ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <CookiesProvider>
-        <RouterProvider router={router} />
-      </CookiesProvider>
-    </React.StrictMode>{' '}
-  </Provider>
+  // <Provider store={store}>
+  <React.StrictMode>
+    {/* <CookiesProvider> */}
+    <RouterProvider router={router} />
+    {/* </CookiesProvider> */}
+  </React.StrictMode>
+  // </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
