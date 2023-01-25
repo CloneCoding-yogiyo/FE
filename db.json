@@ -1,19 +1,9 @@
 {
-  "posts": [
+  "user": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "username": "채정",
+      "email": "angela.lee@gmail.com",
+      "password": "angela123!"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

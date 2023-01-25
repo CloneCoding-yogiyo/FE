@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export default function TopBar() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function TopBar() {
           navigate(`/StoreList`);
         }}
       >
-        요기요
+        <Simage src={"img/logo-yogiyo.png"} alt="logo" />
       </StTopBarBox1>
 
       <StTopBarBox2> 로그인 </StTopBarBox2>
@@ -19,7 +19,7 @@ export default function TopBar() {
   );
 }
 
-const StTopBarBoxs = styled.p`
+const StTopBarBoxs = styled.div`
   width: 100%;
   height: 79px;
   color: white;
@@ -30,12 +30,13 @@ const StTopBarBoxs = styled.p`
   justify-content: space-between;
 `;
 
-const StTopBarBox1 = styled.p`
+const StTopBarBox1 = styled.div`
   margin-left: 15%;
+  font-weight: 900;
   cursor: pointer;
   font-size: 30px;
 `;
-const StTopBarBox2 = styled.p`
+const StTopBarBox2 = styled.div`
   margin-right: 15%;
   padding: 7px 0;
   width: 150px;
@@ -46,4 +47,8 @@ const StTopBarBox2 = styled.p`
 
   border: 1px solid #ea7266;
   border-radius: 2px;
+`;
+const Simage = styled.img`
+  height: 40px;
+  width: 100px;
 `;
