@@ -14,7 +14,7 @@ export default function Store() {
   const fetchTodos = async () => {
     const { data } = await axios.get('http://localhost:3001/Store');
     // const { data } = await axios.get('http://13.209.12.254/store/menus');
-    // console.log(data);
+    console.log(data);
     setStores(data);
   };
 

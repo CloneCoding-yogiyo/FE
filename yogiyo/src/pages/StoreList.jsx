@@ -6,7 +6,10 @@ export default function StoreList() {
   return (
     <div>
       <TopBar></TopBar>
-      <div>{/* <SearchHeader></SearchHeader> */}</div>
+      <div>
+        {/* TODO: 쿼리의 개념이 들어감. */}
+        {/* <SearchHeader></SearchHeader> */}
+      </div>
       <div>
         <Store></Store>
       </div>
