@@ -67,6 +67,12 @@
       "email": "chunsik@naver.com",
       "password": "chunsik1!",
       "id": 2
+    },
+    {
+      "username": "지석",
+      "email": "jiseok@naver.com",
+      "password": "jiseok123!",
+      "id": 3
     }
   ]
 }
