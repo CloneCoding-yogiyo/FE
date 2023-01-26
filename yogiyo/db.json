@@ -55,6 +55,32 @@
       "amount": 1
     }
   ],
+  "MenuList": [
+    {
+      "id": 1,
+      "menuName": "메뉴1",
+      "price": 1000,
+      "amount": 1
+    },
+    {
+      "id": 2,
+      "menuName": "메뉴2",
+      "price": 2000,
+      "amount": 1
+    },
+    {
+      "id": 3,
+      "menuName": "메뉴3",
+      "price": 3000,
+      "amount": 1
+    },
+    {
+      "id": 4,
+      "menuName": "메뉴4",
+      "price": 4000,
+      "amount": 1
+    }
+  ],
   "user": [
     {
       "username": "채정",

@@ -2,8 +2,10 @@ import React from 'react';
 import TopBar from '../components/TopBar';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import Menu from '../components/Menu';
+import Menu from '../components/MenuList';
 import CartList from '../components/CartList';
+import MenuList from '../components/MenuList';
+// import Store from '../components/Store';
 
 export default function OrderCheck() {
   const navigate = useNavigate();
@@ -18,7 +20,8 @@ export default function OrderCheck() {
           <div className='text-300xl'>롯데리아-진주금산점</div>
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
 
-          {/* <Menu></Menu> */}
+          <MenuList></MenuList>
+          {/* <Store></Store> */}
         </StBox>
 
         <StOrderBox>

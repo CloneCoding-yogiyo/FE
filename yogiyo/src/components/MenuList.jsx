@@ -2,17 +2,16 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router';
-
-export default function Store() {
+import { useDispatch } from 'react-redux';
+// import { addCart } from '../redux/modules/menuListSlice';
+export default function Menu() {
   //조회...
-  const navigate = useNavigate();
-
+  // const navigate = useNavigate();
   const [stores, setStores] = useState(null);
 
   //FIXME:
-
   const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3001/Store');
+    const { data } = await axios.get('http://localhost:3001/MenuList');
     // const { data } = await axios.get('http://13.209.12.254/store/menus');
     console.log(data);
     setStores(data);
@@ -33,9 +32,9 @@ export default function Store() {
           return (
             <StBox
               key={store.id}
-              onClick={() => {
-                navigate(`/StoreList/${store.id}`);
-              }}
+              // onClick={() => {
+              //   handleAdd(store);
+              // }}
             >
               {/* <img
                   src={store.imageUrl}

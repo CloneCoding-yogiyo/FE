@@ -22,9 +22,6 @@ const menuListSlice = createSlice({
       if (addedIdx === -1) {
         state.menuList.push({ ...action.payload, amount: 1 });
       }
-      // else {
-      //   state.menuList[addedIdx].amount += 1;
-      // }
     },
     deleteCart: (state, action) => {
       return {

@@ -15,8 +15,8 @@ import OrderComplete from './pages/OrderComplete';
 
 // 리덕스, 스토어, 쿠키,
 // import { CookiesProvider } from 'react-cookie';
-// import { Provider } from 'react-redux';
-// import store from './redux/config/configStore';
+import { Provider } from 'react-redux';
+import store from './redux/config/configStore';
 
 const router = createBrowserRouter([
   {
@@ -35,13 +35,13 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <Provider store={store}>
-  <React.StrictMode>
-    {/* <CookiesProvider> */}
-    <RouterProvider router={router} />
-    {/* </CookiesProvider> */}
-  </React.StrictMode>
-  // </Provider>
+  <Provider store={store}>
+    <React.StrictMode>
+      {/* <CookiesProvider> */}
+      <RouterProvider router={router} />
+      {/* </CookiesProvider> */}
+    </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
