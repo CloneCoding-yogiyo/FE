@@ -55,6 +55,7 @@
       "amount": 1
     }
   ],
+
   "MenuList": [
     {
       "id": 1,
@@ -81,8 +82,11 @@
       "amount": 1
     }
   ],
+
   "user": [
     {
+      "id": 1,
+
       "username": "채정",
       "email": "angela.lee@gmail.com",
       "password": "angela123!"

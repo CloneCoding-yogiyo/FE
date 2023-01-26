@@ -4,16 +4,13 @@ import axios from "axios";
 import styled from "styled-components";
 import { useState, useCallback } from "react";
 import Copyright from "../components/copyright";
-///useCallback 을 이용한 이유는 컴포넌트 렌더링 최적화를 위해서
 import "../App.css";
-// import { useRoutes } from "react-router-dom";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [username, setUserName] = useState("");
-  // const router = useRoutes();
 
   ///유효성 검사 후 띄울 메세지
   const [usernameMessage, setUsernameMessage] = useState("");
@@ -25,7 +22,7 @@ export default function SignUp() {
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
-  ///1. 이름 유효성검사-2글자 이상
+  ///1. 닉네임 유효성검사-2글자 이상
   const onChangeName = useCallback((e) => {
     setUserName(e.target.value);
     if (e.target.value.length < 2) {
@@ -56,13 +53,13 @@ export default function SignUp() {
   const onChangePassword = useCallback((e) => {
     ///패스워드 정규식사용.
     const passwordRegex =
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+      /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
     const passwordCurrent = e.target.value;
     setPassword(passwordCurrent);
 
     if (!passwordRegex.test(passwordCurrent)) {
       setPasswordMessage(
-        "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
+        "대문자+소문자+특수문자 조합으로 8자리 이상 입력해주세요!"
       );
       setIsPassword(false);
     } else {
@@ -96,14 +93,14 @@ export default function SignUp() {
       try {
         await axios({
           method: "post",
-          url: "http://localhost:3001/user",
+          url: "http://3.36.130.126/users/signup",
           data: { username: username, email: email, password: password },
         }).then((res) => {
           console.log("response:", res);
-          if (res.status === 200) {
+          if (res.status === 201) {
             alert("회원가입이 완료되었습니다");
             console.log("User profile", res.data.username, res.data.email);
-            // router.push("/sign_up/profile_start");
+            window.location.replace("/");
           }
         });
       } catch (err) {
@@ -118,12 +115,13 @@ export default function SignUp() {
       <TopBar />
 
       <SSignupForm onSubmit={onSubmit}>
+        <Simagelogo src={"img/logo-pink.png"} />
         <SInput
           autoFocus
           required
           onChange={onChangeName}
           value={username}
-          placeholder="사용자 이름 입력"
+          placeholder="닉네임 입력(특수문자이용은 불가능합니다!)"
         />
         {username.length > 0 && (
           <Sspan className={`message ${isUserName ? "success" : "error"}`}>
@@ -146,7 +144,7 @@ export default function SignUp() {
           required
           onChange={onChangePassword}
           value={password}
-          placeholder="비밀번호 입력(숫자+영문자+특수문자 조합으로 8자리 이상)"
+          placeholder="비밀번호 입력(대문자+소문자+특수문자 조합으로 8자리 이상 입력해주세요!)"
         />
         {password.length > 0 && (
           <Sspan className={`message ${isPassword ? "success" : "error"}`}>
@@ -169,10 +167,7 @@ export default function SignUp() {
         )}
         <Sbutton
           type="submit"
-          // onClick={() => {
-          //   onSubmit();
-          //   window.location.replace("/");
-          // }}
+          disabled={!(isUserName && isEmail && isPassword && isPasswordConfirm)}
         >
           회원가입
         </Sbutton>
@@ -218,4 +213,12 @@ const SwholeDiv = styled.div`
   background-color: rgba(249, 249, 249);
   height: 100%;
   width: auto;
+`;
+const Simagelogo = styled.img`
+  height: 50px;
+  width: 120px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  display: flex;
+  margin: -70px auto 50px auto;
 `;

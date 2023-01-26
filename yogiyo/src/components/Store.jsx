@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 export default function Store() {
   //조회...
@@ -12,7 +12,7 @@ export default function Store() {
   //FIXME:
 
   const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3001/Store');
+    const { data } = await axios.get("http://localhost:3001/Store");
     // const { data } = await axios.get('http://13.209.12.254/store/menus');
     console.log(data);
     setStores(data);
@@ -60,9 +60,9 @@ const StBoxs = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 15px;
+  padding-left: 300px;
+  padding-right: 300px;
   text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
 `;
 
 const StBox = styled.div`
@@ -74,7 +74,7 @@ const StBox = styled.div`
 
   margin-top: 15px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 15px;
 
   width: 488px;
   height: 106px;
