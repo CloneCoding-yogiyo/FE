@@ -54,5 +54,12 @@
       "price": 7000,
       "amount": 1
     }
+  ],
+  "user": [
+    {
+      "username": "채정",
+      "email": "angela.lee@gmail.com",
+      "password": "angela123!"
+    }
   ]
 }

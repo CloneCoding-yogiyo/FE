@@ -11,6 +11,7 @@ export default function StoreList() {
         {/* <SearchHeader></SearchHeader> */}
       </div>
       <div>
+        {/* 가게 리스트 */}
         <Store></Store>
       </div>
     </div>
