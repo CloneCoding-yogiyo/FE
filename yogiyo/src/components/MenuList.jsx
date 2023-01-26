@@ -3,11 +3,34 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { addCart } from '../redux/modules/menuListSlice';
 // import { addCart } from '../redux/modules/menuListSlice';
 export default function Menu() {
   //조회...
   // const navigate = useNavigate();
   const [stores, setStores] = useState(null);
+
+  //추가 기능.
+  const dispatch = useDispatch();
+  const [menuLists, setMenuLists] = useState(null);
+
+  const [addedIds, setAddedIds] = useState([]);
+  //FIXME:
+  const handleAdd = (menu) => {
+    const addedIdx = addedIds.findIndex((id) => id === menu.id);
+    if (addedIdx === -1) {
+      dispatch(addCart({ ...menu, amount: 1 }));
+      setAddedIds([...addedIds, menu.id]);
+    } else {
+      dispatch(incrementAmount(menu.id));
+    }
+  };
+  const incrementAmount = (id) => {
+    return {
+      type: 'increment',
+      payload: id,
+    };
+  };
 
   //FIXME:
   const fetchTodos = async () => {
@@ -32,9 +55,9 @@ export default function Menu() {
           return (
             <StBox
               key={store.id}
-              // onClick={() => {
-              //   handleAdd(store);
-              // }}
+              onClick={() => {
+                handleAdd(store);
+              }}
             >
               {/* <img
                   src={store.imageUrl}

@@ -29,7 +29,7 @@ export default function OrderCheck() {
           <div>주문표에 담긴 메뉴가 없습니다.</div>
           <div>주문표에 담긴 메뉴가 없습니다.</div>
           {/* FIXME: ADD핸들 기능부터 만들기. */}
-          {/* <CartList></CartList> */}
+          <CartList></CartList>
 
           <div
             onClick={() => {
