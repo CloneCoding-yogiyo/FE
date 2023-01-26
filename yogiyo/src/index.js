@@ -17,6 +17,9 @@ import OrderComplete from './pages/OrderComplete';
 // import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import store from './redux/config/configStore';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
   {
