@@ -5,9 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import Menu from '../components/MenuList';
 import CartList from '../components/CartList';
 import MenuList from '../components/MenuList';
+import { useSelector } from 'react-redux';
 // import Store from '../components/Store';
 
 export default function OrderCheck() {
+  // 총가격...  각각의 amount*price
+  const globaladdCart = useSelector((state) => state.menuList.menuList);
+  let totalprice = 0;
+  for (let i = 0; i < globaladdCart.length; i++) {
+    totalprice = totalprice + globaladdCart[i].price * globaladdCart[i].amount;
+  }
   const navigate = useNavigate();
   return (
     <div>
@@ -28,15 +35,15 @@ export default function OrderCheck() {
           <div>주문표</div>
           <div>주문표에 담긴 메뉴가 없습니다.</div>
           <CartList></CartList>
-
+          <div> 배달요금 1000원 별도</div>
+          <div>합계: {totalprice + 1000}원</div>
           {/* FIXME: ADD핸들 기능부터 만들기. */}
-
           <div
             onClick={() => {
               navigate(`/StoreList/OrderComplete`);
             }}
           >
-            결제하기
+            주문하기
           </div>
         </StOrderBox>
       </StBoxs>

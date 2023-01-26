@@ -44,7 +44,14 @@ export default function CounterButton(props) {
     <>
       <StCartList>
         <StCartListMenu>
-          <div>{props.item.menuName}</div>{' '}
+          <div>{props.item.menuName}</div> {/* 삭제기능~ */}
+          <StCartListDelete
+            onClick={() => {
+              handledDelete(props.item.id);
+            }}
+          >
+            ×
+          </StCartListDelete>
           <div>{props.item.price * props.item.amount}원</div>
         </StCartListMenu>
         <StCartListControl>
@@ -69,13 +76,6 @@ export default function CounterButton(props) {
             <BsPlusLg />
           </StCartListControlBox>
         </StCartListControl>
-        <StCartListDelete
-          onClick={() => {
-            handledDelete(props.item.id);
-          }}
-        >
-          ×
-        </StCartListDelete>
       </StCartList>
     </>
   );
