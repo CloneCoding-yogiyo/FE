@@ -27,9 +27,9 @@ export default function OrderCheck() {
         <StOrderBox>
           <div>주문표</div>
           <div>주문표에 담긴 메뉴가 없습니다.</div>
-          <div>주문표에 담긴 메뉴가 없습니다.</div>
-          {/* FIXME: ADD핸들 기능부터 만들기. */}
           <CartList></CartList>
+
+          {/* FIXME: ADD핸들 기능부터 만들기. */}
 
           <div
             onClick={() => {

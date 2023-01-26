@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { BsTrash } from 'react-icons/bs';
+
 import { BsPlusLg } from 'react-icons/bs';
 import { HiMinus } from 'react-icons/hi';
 
@@ -45,10 +45,7 @@ export default function CounterButton(props) {
       <StCartList>
         <StCartListMenu>
           <div>{props.item.menuName}</div>{' '}
-          <div>
-            <FaWonSign />
-            {props.item.price * props.item.amount}
-          </div>
+          <div>{props.item.price * props.item.amount}원</div>
         </StCartListMenu>
         <StCartListControl>
           <StCartListControlBox
@@ -77,7 +74,7 @@ export default function CounterButton(props) {
             handledDelete(props.item.id);
           }}
         >
-          <BsTrash />
+          ×
         </StCartListDelete>
       </StCartList>
     </>
@@ -104,7 +101,7 @@ const StCartListMenu = styled.div`
   background-color: #ffffffe0;
   padding: 20px 60px 20px;
   font-family: 'NanumSquareRoundBold';
-  font-size: 15pt;
+  font-size: 10pt;
 `;
 
 const StCartListControl = styled.div`
@@ -129,23 +126,16 @@ const StCartListControlBox2 = styled.div`
 `;
 
 const StCartListControlBox = styled.div`
-  border-radius: 10px;
-  border-style: solid;
-  border-color: white;
-  height: 40px;
+  border: 1px solid #fa0050;
+  height: 24px;
+  width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-basis: 22%;
-  background-color: #232323c9;
-  color: white;
+  background-color: white;
+  color: #fa0050;
   cursor: pointer;
-  &:hover {
-    border: solid 2px #ffe600e2;
-    background-color: #ffe600e2;
-    transition: all 300ms ease;
-    /* transform: rotate(-30deg) scale(1.2); */
-  }
 `;
 
 const StCartListDelete = styled.div`
@@ -153,15 +143,11 @@ const StCartListDelete = styled.div`
   align-items: center;
   justify-content: center;
   flex-basis: 10%;
-  border-radius: 10px;
-  height: 40px;
+  border: 1px solid gray;
+  height: 24px;
+  width: 24px;
+
   background-color: white;
   font-size: 25px;
   cursor: pointer;
-  &:hover {
-    border: solid 2px #ffe600e2;
-    background-color: #ffe600e2;
-    transition: all 300ms ease;
-    /* transform: rotate(-30deg) scale(1.2); */
-  }
 `;

@@ -1,6 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function TopBar() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function TopBar() {
           navigate(`/StoreList`);
         }}
       >
-        <Simage src={"img/logo-yogiyo.png"} alt="logo" />
+        <Simage src={'img/logo-yogiyo.png'} alt='logo' />
       </StTopBarBox1>
 
       <StTopBarBox2> 로그인 </StTopBarBox2>
