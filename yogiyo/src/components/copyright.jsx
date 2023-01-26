@@ -19,4 +19,5 @@ export default function Copyright() {
 const Simage = styled.img`
   height: 100%;
   width: 100%;
+  min-width: 1500px;
 `;

@@ -100,10 +100,10 @@ export default function SignUp() {
           data: { username: username, email: email, password: password },
         }).then((res) => {
           console.log("response:", res);
-          if (res.status === 200) {
+          if (res.status === 201) {
             alert("회원가입이 완료되었습니다");
             console.log("User profile", res.data.username, res.data.email);
-            // router.push("/sign_up/profile_start");
+            window.location.replace("/");
           }
         });
       } catch (err) {
@@ -118,12 +118,13 @@ export default function SignUp() {
       <TopBar />
 
       <SSignupForm onSubmit={onSubmit}>
+        <Simagelogo src={"img/logo-pink.png"} />
         <SInput
           autoFocus
           required
           onChange={onChangeName}
           value={username}
-          placeholder="사용자 이름 입력"
+          placeholder="닉네임 입력"
         />
         {username.length > 0 && (
           <Sspan className={`message ${isUserName ? "success" : "error"}`}>
@@ -167,15 +168,7 @@ export default function SignUp() {
             {passwordConfirmMessage}
           </Sspan>
         )}
-        <Sbutton
-          type="submit"
-          // onClick={() => {
-          //   onSubmit();
-          //   window.location.replace("/");
-          // }}
-        >
-          회원가입
-        </Sbutton>
+        <Sbutton type="submit">회원가입</Sbutton>
       </SSignupForm>
       <Copyright />
     </SwholeDiv>
@@ -218,4 +211,12 @@ const SwholeDiv = styled.div`
   background-color: rgba(249, 249, 249);
   height: 100%;
   width: auto;
+`;
+const Simagelogo = styled.img`
+  height: 50px;
+  width: 120px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  display: flex;
+  margin: -70px auto 50px auto;
 `;
