@@ -3,6 +3,10 @@ import { useSelector } from 'react-redux';
 
 export default function OrderComplete() {
   const globaladdCart = useSelector((state) => state.menuList.menuList);
+  let totalprice = 0;
+  for (let i = 0; i < globaladdCart.length; i++) {
+    totalprice = totalprice + globaladdCart[i].price * globaladdCart[i].amount;
+  }
 
   return (
     <div>
@@ -36,6 +40,9 @@ export default function OrderComplete() {
             </>
           );
         })}
+      </div>
+      <div>
+        <div>상품합계:{totalprice}원</div>
       </div>
     </div>
   );
