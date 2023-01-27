@@ -35,7 +35,7 @@ export default function Menu() {
   //FIXME:
   const fetchTodos = async () => {
     const { data } = await axios.get('http://localhost:3001/MenuList');
-    // const { data } = await axios.get('http://13.209.12.254/store/menus');
+    // const { data } = await axios.get('http://3.36.130.126/stores');
     console.log(data);
     setStores(data);
   };
