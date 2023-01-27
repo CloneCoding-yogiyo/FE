@@ -42,7 +42,7 @@ export default function OrderComplete() {
         })}
       </div>
       <div>
-        <div>상품합계:{totalprice}원</div>
+        <div>합계:{totalprice}원</div>
       </div>
     </div>
   );

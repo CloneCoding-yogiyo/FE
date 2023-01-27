@@ -1,16 +1,16 @@
-import React from "react";
-import TopBar from "../components/TopBar";
-import styled from "styled-components";
-import Copyright from "../components/copyright";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React from 'react';
+import TopBar from '../components/TopBar';
+import styled from 'styled-components';
+import Copyright from '../components/copyright';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 // import { useCookies } from "react-cookie";
-import axios from "axios";
+import axios from 'axios';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   // const [cookies, setCookie] = useCookies(["token"]);
   const navigate = useNavigate();
 
@@ -19,14 +19,14 @@ export default function Login() {
 
     // Client-side validation
     if (!email || !password) {
-      setError("Please enter a username and password");
+      setError('Please enter a username and password');
       return;
     }
     try {
       // 서버에 email, password를 보내서 요청
       const response = await axios
         .post(
-          "http://3.36.130.126/users/login",
+          'http://3.36.130.126/users/login',
           {
             email,
             password,
@@ -36,10 +36,10 @@ export default function Login() {
           // }
         )
         .then((res) => {
-          const token = localStorage.getItem("token");
+          const token = localStorage.getItem('token');
           console.log(token);
-          localStorage.setItem("token", res.headers.get("Authorization"));
-          localStorage.setItem("Authorization", `Bearer ${res.data.token}`);
+          localStorage.setItem('token', res.headers.get('Authorization'));
+          localStorage.setItem('Authorization', `Bearer ${res.data.token}`);
           // localStorage.setItem("token", token);
           console.log(res);
 
@@ -48,9 +48,9 @@ export default function Login() {
           // console.log(token);
           console.log(res.headers.Authorization);
           console.log(
-            "Authorization: " + localStorage.getItem("Authorization")
+            'Authorization: ' + localStorage.getItem('Authorization')
           );
-          console.log("Token: " + localStorage.getItem("token"));
+          console.log('Token: ' + localStorage.getItem('token'));
 
           // localStorage.setItem("Authorization", res.data.authorization);
           // 쿠키에 토큰 저장
@@ -60,7 +60,7 @@ export default function Login() {
       // setCookie("token", token, { path: "/StoreList" });
       //이렇게저장한 토큰은 브라우저를 종료하면 삭제됨. 저장된 토큰은 cookies.token으로 접근할 수 있다.
     } catch (error) {
-      setError("존재하지 않는 회원정보입니다!");
+      setError('존재하지 않는 회원정보입니다!');
     }
   }
   // function handleLogout() {
@@ -73,41 +73,43 @@ export default function Login() {
     <SwholeDiv>
       <TopBar />
       <SSignupForm onSubmit={handleSubmit}>
-        <Simagelogo src={"img/logo-pink.png"} />
+        <Simagelogo src={'img/logo-pink.png'} />
         <SInput
           required
           autoFocus
-          placeholder="이메일 주소 입력(필수)"
+          placeholder='이메일 주소 입력(필수)'
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
         <SInputbottom
           required
-          type="password"
-          placeholder="비밀번호 입력(필수)"
+          type='password'
+          placeholder='비밀번호 입력(필수)'
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
         <SdivautoLogin>
-          <input type="checkbox" />
+          <input type='checkbox' />
           자동로그인
         </SdivautoLogin>
         <Sbutton
-          type="submit"
-          // onClick={() => {
-          //   onSubmit();
-          //   window.location.replace("/");
-          // }}
+          type='submit'
+          onClick={() => {
+            navigate(`/StoreList`);
+
+            // onSubmit();
+            // window.location.replace("/");
+          }}
         >
           로그인
         </Sbutton>
-      </SSignupForm>{" "}
+      </SSignupForm>{' '}
       <Simage
         onClick={() => {
-          navigate("/SignUp");
+          navigate('/SignUp');
         }}
-        src={"img/signUp.png"}
-        alt="signUpimage"
+        src={'img/signUp.png'}
+        alt='signUpimage'
       />
       <Copyright />
     </SwholeDiv>
