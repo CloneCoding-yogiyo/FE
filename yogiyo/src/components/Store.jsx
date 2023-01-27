@@ -1,22 +1,23 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 export default function Store() {
   //조회...
   const navigate = useNavigate();
 
-  const [stores, setStores] = useState(null);
+  const [stores, setStores] = useState([]);
 
   //FIXME:
 
   const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3001/Store');
-    // const { data } = await axios.get('http://3.36.130.126/stores');
-
-    console.log(data);
-    setStores(data);
+    const { data } = await axios.get("http://3.36.130.126/stores", {
+      headers: { Authorization: localStorage.getItem("Authorization") },
+    });
+    // const { data } = await axios.get('http://13.209.12.254/store/menus');
+    console.log(data.data);
+    setStores(data.data);
   };
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function Store() {
     <div>
       요기요 등록음식점
       <StBoxs>
-        {stores?.map((store) => {
+        {[].map((store) => {
           // console.log(store);
           return (
             <StBox
