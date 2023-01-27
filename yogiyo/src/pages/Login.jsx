@@ -36,21 +36,17 @@ export default function Login() {
           // }
         )
         .then((res) => {
-          console.log(res);
           const token = localStorage.getItem("token");
           console.log(token);
-          console.log(res.data.authorization);
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem(
-            "Authorization",
-            `Bearer ${response.data.token}`
-          );
+          localStorage.setItem("token", res.headers.get("Authorization"));
+          localStorage.setItem("Authorization", `Bearer ${res.data.token}`);
           // localStorage.setItem("token", token);
           console.log(res);
+
           // const token = localStorage.getItem("token");
 
           // console.log(token);
-          console.log(res.data.authorization);
+          console.log(res.headers.Authorization);
           console.log(
             "Authorization: " + localStorage.getItem("Authorization")
           );
