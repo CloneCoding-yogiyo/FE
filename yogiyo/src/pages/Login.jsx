@@ -24,10 +24,16 @@ export default function Login() {
     }
     try {
       // Send a request to the server with the username and password
-      const response = await axios.post("http://3.36.130.126/users/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://3.36.130.126/users/login",
+        {
+          email,
+          password,
+        }
+        // {
+        //   withCredentials: true,
+        // }
+      );
 
       // Get the token from the server response
       const token = response.data.token;
