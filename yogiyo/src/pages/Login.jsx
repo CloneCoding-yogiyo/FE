@@ -3,16 +3,70 @@ import TopBar from "../components/TopBar";
 import styled from "styled-components";
 import Copyright from "../components/copyright";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [cookies, setCookie] = useCookies(["token"]);
   const navigate = useNavigate();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    // Client-side validation
+    if (!email || !password) {
+      setError("Please enter a username and password");
+      return;
+    }
+    try {
+      // Send a request to the server with the username and password
+      const response = await axios.post("http://3.36.130.126/users/login", {
+        email,
+        password,
+      });
+
+      // Get the token from the server response
+      const token = response.data.token;
+
+      // Set the token in a cookie
+      setCookie("token", token, { path: "/StoreList" });
+
+      // Redirect to the home page
+      // ...
+    } catch (error) {
+      setError("존재하지 않는 회원정보입니다!");
+    }
+  }
+  function handleLogout() {
+    // Remove the token from the cookie
+    setCookie("token", "", { path: "/", expires: new Date() });
+
+    // Redirect to the login page
+    // ...
+  }
   return (
     <SwholeDiv>
-      <TopBar></TopBar>
-      <SSignupForm>
+      <TopBar />
+      <SSignupForm onSubmit={handleSubmit}>
         <Simagelogo src={"img/logo-pink.png"} />
-        <SInput required placeholder="이메일 주소 입력" />
-        <SInputbottom placeholder="비밀번호 입력" />
+        <SInput
+          required
+          autoFocus
+          placeholder="이메일 주소 입력(필수)"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <SInputbottom
+          required
+          type="password"
+          placeholder="비밀번호 입력(필수)"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
         <SdivautoLogin>
           <input type="checkbox" />
           자동로그인
