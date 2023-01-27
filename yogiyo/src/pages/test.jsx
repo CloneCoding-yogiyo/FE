@@ -4,14 +4,15 @@ import styled from "styled-components";
 import Copyright from "../components/copyright";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-// import { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // const [cookies, setCookie] = useCookies(["token"]);
+  //Usecookie로 토큰저장
+  const [cookies, setCookie] = useCookies(["token"]);
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
@@ -24,55 +25,28 @@ export default function Login() {
     }
     try {
       // 서버에 email, password를 보내서 요청
-      const response = await axios
-        .post(
-          "http://3.36.130.126/users/login",
-          {
-            email,
-            password,
-          }
-          // {
-          //   withCredentials: true,
-          // }
-        )
-        .then((res) => {
-          console.log(res);
-          const token = localStorage.getItem("token");
-          console.log(token);
-          console.log(res.data.authorization);
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem(
-            "Authorization",
-            `Bearer ${response.data.token}`
-          );
-          // localStorage.setItem("token", token);
-          console.log(res);
-          // const token = localStorage.getItem("token");
+      const response = await axios.post("http://3.36.130.126/users/login", {
+        email,
+        password,
+      });
 
-          // console.log(token);
-          console.log(res.data.authorization);
-          console.log(
-            "Authorization: " + localStorage.getItem("Authorization")
-          );
-          console.log("Token: " + localStorage.getItem("token"));
-
-          // localStorage.setItem("Authorization", res.data.authorization);
-          // 쿠키에 토큰 저장
-        });
+      // 서버응답에서 토큰 가져오기 token이라고저장
+      const token = response.data.token;
 
       // 토큰을 서버로부터 정상적으로 받아왔을떄 setCookie로 토큰 저장.
-      // setCookie("token", token, { path: "/StoreList" });
+      setCookie("token", token, { path: "/StoreList" });
       //이렇게저장한 토큰은 브라우저를 종료하면 삭제됨. 저장된 토큰은 cookies.token으로 접근할 수 있다.
     } catch (error) {
       setError("존재하지 않는 회원정보입니다!");
     }
   }
-  // function handleLogout() {
-  // Remove the token from the cookie
-  // setCookie("token", "", { path: "/", expires: new Date() });
-  // Redirect to the login page
-  // ...
-  // }
+  function handleLogout() {
+    // Remove the token from the cookie
+    setCookie("token", "", { path: "/", expires: new Date() });
+
+    // Redirect to the login page
+    // ...
+  }
   return (
     <SwholeDiv>
       <TopBar />
