@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import { useNavigate } from 'react-router';
 
 export default function Store() {
   //조회...
@@ -12,8 +12,8 @@ export default function Store() {
   //FIXME:
 
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://3.36.130.126/stores", {
-      headers: { Authorization: localStorage.getItem("Authorization") },
+    const { data } = await axios.get('http://3.36.130.126/stores', {
+      headers: { Authorization: localStorage.getItem('Authorization') },
     });
     // const { data } = await axios.get('http://13.209.12.254/store/menus');
     console.log(data.data);
