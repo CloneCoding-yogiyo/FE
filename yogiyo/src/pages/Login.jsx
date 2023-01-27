@@ -24,41 +24,18 @@ export default function Login() {
     }
     try {
       // 서버에 email, password를 보내서 요청
+
       const response = await axios
-        .post(
-          "http://3.36.130.126/users/login",
-          {
-            email,
-            password,
-          }
-          // {
-          //   withCredentials: true,
-          // }
-        )
-        .then((res) => {
-          const token = localStorage.getItem("token");
-          console.log(token);
-          localStorage.setItem("token", res.headers.get("Authorization"));
-          localStorage.setItem("Authorization", `Bearer ${res.data.token}`);
-          // localStorage.setItem("token", token);
-          console.log(res);
-
-          // const token = localStorage.getItem("token");
-
-          // console.log(token);
-          console.log(res.headers.Authorization);
-          console.log(
-            "Authorization: " + localStorage.getItem("Authorization")
-          );
-          console.log("Token: " + localStorage.getItem("token"));
-
-          // localStorage.setItem("Authorization", res.data.authorization);
-          // 쿠키에 토큰 저장
-        });
-
-      // 토큰을 서버로부터 정상적으로 받아왔을떄 setCookie로 토큰 저장.
-      // setCookie("token", token, { path: "/StoreList" });
-      //이렇게저장한 토큰은 브라우저를 종료하면 삭제됨. 저장된 토큰은 cookies.token으로 접근할 수 있다.
+        .post("http://3.36.130.126/users/login", {
+          email,
+          password,
+        })
+        .then((res) =>
+          localStorage.setItem(
+            "Authorization",
+            res.headers.get("Authorization")
+          )
+        );
     } catch (error) {
       setError("존재하지 않는 회원정보입니다!");
     }
