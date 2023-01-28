@@ -50,7 +50,7 @@ export default function Menu() {
     <div>
       <StMenuBox>
         <div>메뉴</div>
-        <div>리뷰</div>
+        <div>리뷰s</div>
       </StMenuBox>
       <StBoxs>
         {stores?.map((store) => {
