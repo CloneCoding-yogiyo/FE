@@ -1,5 +1,5 @@
 import React from 'react';
-import TopBar from '../components/TopBar';
+import TopBarLogout from '../components/TopBar logout';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Menu from '../components/MenuList';
@@ -18,7 +18,7 @@ export default function OrderCheck() {
   const navigate = useNavigate();
   return (
     <div>
-      <TopBar></TopBar>
+      <TopBarLogout />
       <div>
         <input></input>
       </div>
@@ -27,6 +27,7 @@ export default function OrderCheck() {
           <StLeftTitleBox className='text-300xl'>
             롯데리아-진주금산점
           </StLeftTitleBox>
+
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
           <StLeftStoreInfoBox>
             <div>이미지</div>

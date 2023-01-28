@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function TopBar() {
+export default function TopBarLogout() {
   const navigate = useNavigate();
   return (
     <StTopBarBoxs>
@@ -17,7 +17,7 @@ export default function TopBar() {
         />
       </StTopBarBox1>
 
-      <StTopBarBox2> 로그인 </StTopBarBox2>
+      <StTopBarBox2> 로그아웃 </StTopBarBox2>
     </StTopBarBoxs>
   );
 }
