@@ -1,11 +1,11 @@
-import React from 'react';
-import TopBar from '../components/TopBar';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import Menu from '../components/MenuList';
-import CartList from '../components/CartList';
-import MenuList from '../components/MenuList';
-import { useSelector } from 'react-redux';
+import React from "react";
+import TopBarLogout from "../components/TopBar logout";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import Menu from "../components/MenuList";
+import CartList from "../components/CartList";
+import MenuList from "../components/MenuList";
+import { useSelector } from "react-redux";
 // import Store from '../components/Store';
 
 export default function OrderCheck() {
@@ -18,13 +18,13 @@ export default function OrderCheck() {
   const navigate = useNavigate();
   return (
     <div>
-      <TopBar></TopBar>
+      <TopBarLogout />
       <div>
         <input></input>
       </div>
       <StBoxs>
         <StBox>
-          <div className='text-300xl'>롯데리아-진주금산점</div>
+          <div className="text-300xl">롯데리아-진주금산점</div>
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
 
           <MenuList></MenuList>

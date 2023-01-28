@@ -22,11 +22,18 @@ export default function SignUp() {
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
-  ///1. 닉네임 유효성검사-2글자 이상
+  ///1. 닉네임 유효성검사-2글자 이상 12자리 이하 특수문자불가
   const onChangeName = useCallback((e) => {
+    const usenameRegex = /[^a-zA-Z0-9ㄱ-힣]/g;
     setUserName(e.target.value);
-    if (e.target.value.length < 2) {
+    if (usenameRegex.test(e.target.value)) {
+      setUsernameMessage("특수문자는 이용이 불가능합니다!");
+      setIsUserName(false);
+    } else if (e.target.value.length < 2) {
       setUsernameMessage("2글자 이상 입력해주세요.");
+      setIsUserName(false);
+    } else if (e.target.value.length > 12) {
+      setUsernameMessage("12자리 이하로 입력해주세요");
       setIsUserName(false);
     } else {
       setUsernameMessage("올바른 형식입니다.");
@@ -49,17 +56,17 @@ export default function SignUp() {
       setEmailMessage("올바른 형식입니다.");
     }
   }, []);
-  ///3. 패스워드 유효성검사-알파벳,숫자,특수문자 8자리이상
+  ///3. 패스워드 유효성검사-알파벳,숫자,특수문자 8자리이상 15자리 이하
   const onChangePassword = useCallback((e) => {
     ///패스워드 정규식사용.
     const passwordRegex =
-      /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+      /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
     const passwordCurrent = e.target.value;
     setPassword(passwordCurrent);
 
     if (!passwordRegex.test(passwordCurrent)) {
       setPasswordMessage(
-        "대문자+소문자+특수문자 조합으로 8자리 이상 입력해주세요!"
+        "대문자+소문자+특수문자+숫자 조합으로 8~15자리로 입력해주세요!"
       );
       setIsPassword(false);
     } else {
@@ -121,7 +128,7 @@ export default function SignUp() {
           required
           onChange={onChangeName}
           value={username}
-          placeholder="닉네임 입력(특수문자이용은 불가능합니다!)"
+          placeholder="닉네임 2~12자리 입력(특수문자이용은 불가능합니다!)"
         />
         {username.length > 0 && (
           <Sspan className={`message ${isUserName ? "success" : "error"}`}>
@@ -144,7 +151,7 @@ export default function SignUp() {
           required
           onChange={onChangePassword}
           value={password}
-          placeholder="비밀번호 입력(대문자+소문자+특수문자 조합으로 8자리 이상 입력해주세요!)"
+          placeholder="비밀번호 입력(대문자+소문자+특수문자+숫자 조합으로 8~15자리 입력해주세요!)"
         />
         {password.length > 0 && (
           <Sspan className={`message ${isPassword ? "success" : "error"}`}>
