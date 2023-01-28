@@ -9,7 +9,7 @@ export default function Copyright() {
     <div>
       <Simage
         onClick={moveToYogiyo}
-        src={"img/copyright.png"}
+        src={process.env.PUBLIC_URL + "/img/copyright.png"}
         alt="copyright"
       />
     </div>

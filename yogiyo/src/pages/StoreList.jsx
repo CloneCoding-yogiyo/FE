@@ -1,11 +1,11 @@
-import React from 'react';
-import TopBar from '../components/TopBar';
-import Store from '../components/Store';
+import React from "react";
+import TopBarLogout from "../components/TopBar logout";
+import Store from "../components/Store";
 // import SearchHeader from '../components/SearchHeader';
 export default function StoreList() {
   return (
     <div>
-      <TopBar></TopBar>
+      <TopBarLogout />
       <div>
         {/* TODO: 쿼리의 개념이 들어감. */}
         {/* <SearchHeader></SearchHeader> */}
