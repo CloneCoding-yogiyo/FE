@@ -10,6 +10,7 @@ const initialState = {
   ],
 };
 
+//TODO:  뒤돌아 가기 했을때 이니셜스테이트 값을 액션 하나 추가하기.....
 //#3. 여기가 툴킷 - 액션벨류,함수로직(리듀서+액션크리에이터)
 const menuListSlice = createSlice({
   name: 'addCart',
@@ -52,6 +53,16 @@ const menuListSlice = createSlice({
           }
           return menu;
         }),
+      };
+    },
+    defaultCart: (state, action) => {
+      return {
+        ...state,
+        menuList: [
+          // {
+          //   count: 1,
+          // },
+        ],
       };
     },
   },
