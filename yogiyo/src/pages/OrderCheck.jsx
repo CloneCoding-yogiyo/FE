@@ -1,11 +1,12 @@
-import React from 'react';
-import TopBarLogout from '../components/TopBar logout';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import Menu from '../components/MenuList';
-import CartList from '../components/CartList';
-import MenuList from '../components/MenuList';
-import { useSelector } from 'react-redux';
+import React from "react";
+import TopBarLogout from "../components/TopBar logout";
+import styled from "styled-components";
+import { useNavigate, useParams } from "react-router-dom";
+import Menu from "../components/MenuList";
+import CartList from "../components/CartList";
+import MenuList from "../components/MenuList";
+import { useSelector } from "react-redux";
+
 // import Store from '../components/Store';
 
 export default function OrderCheck() {
@@ -16,6 +17,8 @@ export default function OrderCheck() {
     totalprice = totalprice + globaladdCart[i].price * globaladdCart[i].amount;
   }
   const navigate = useNavigate();
+  const param = useParams();
+  console.log(param);
   return (
     <div>
       <TopBarLogout />
@@ -24,7 +27,7 @@ export default function OrderCheck() {
       </div>
       <StBoxs>
         <StBox>
-          <StLeftTitleBox className='text-300xl'>
+          <StLeftTitleBox className="text-300xl">
             롯데리아-진주금산점
           </StLeftTitleBox>
 
@@ -56,7 +59,7 @@ export default function OrderCheck() {
           {/* FIXME: ADD핸들 기능부터 만들기. */}
           <div
             onClick={() => {
-              navigate(`/StoreList/OrderComplete`);
+              navigate(`/StoreList/OrderComplete/${param.Id}`);
             }}
           >
             주문하기
