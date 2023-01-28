@@ -59,7 +59,7 @@ export default function OrderCheck() {
           {/* FIXME: ADD핸들 기능부터 만들기. */}
           <div
             onClick={() => {
-              navigate(`/StoreList/OrderComplete/${param.menuName}`);
+              navigate(`/StoreList/OrderComplete/${param.Id}`);
             }}
           >
             주문하기

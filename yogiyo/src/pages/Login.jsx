@@ -1,16 +1,16 @@
-import React from 'react';
-import TopBar from '../components/TopBar';
-import styled from 'styled-components';
-import Copyright from '../components/copyright';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import React from "react";
+import TopBar from "../components/TopBar";
+import styled from "styled-components";
+import Copyright from "../components/copyright";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 // import { useCookies } from "react-cookie";
-import axios from 'axios';
+import axios from "axios";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   // const [cookies, setCookie] = useCookies(["token"]);
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ export default function Login() {
 
     // Client-side validation
     if (!email || !password) {
-      setError('Please enter a username and password');
+      setError("Please enter a username and password");
       return;
     }
     try {
@@ -27,18 +27,18 @@ export default function Login() {
 
       const response = await axios
 
-        .post('http://3.36.130.126/users/login', {
+        .post(" http://jsmtmt.shop/users/login", {
           email,
           password,
         })
         .then((res) =>
           localStorage.setItem(
-            'Authorization',
-            res.headers.get('Authorization')
+            "Authorization",
+            res.headers.get("Authorization")
           )
         );
     } catch (error) {
-      setError('존재하지 않는 회원정보입니다!');
+      setError("존재하지 않는 회원정보입니다!");
     }
   }
   // function handleLogout() {
@@ -51,43 +51,43 @@ export default function Login() {
     <SwholeDiv>
       <TopBar />
       <SSignupForm onSubmit={handleSubmit}>
-        <Simagelogo src={'img/logo-pink.png'} />
+        <Simagelogo src={"img/logo-pink.png"} />
         <SInput
           required
           autoFocus
-          placeholder='이메일 주소 입력(필수)'
+          placeholder="이메일 주소 입력(필수)"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
         <SInputbottom
           required
-          type='password'
-          placeholder='비밀번호 입력(필수)'
+          type="password"
+          placeholder="비밀번호 입력(필수)"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
         <SdivautoLogin>
-          <input type='checkbox' />
+          <input type="checkbox" />
           자동로그인
         </SdivautoLogin>
         <Sbutton
-          type='submit'
-          onClick={() => {
-            navigate(`/StoreList`);
+          type="submit"
+          // onClick={() => {
+          //   navigate(`/StoreList`);
 
-            // onSubmit();
-            // window.location.replace("/");
-          }}
+          //   // onSubmit();
+          //   // window.location.replace("/");
+          // }}
         >
           로그인
         </Sbutton>
-      </SSignupForm>{' '}
+      </SSignupForm>{" "}
       <Simage
         onClick={() => {
-          navigate('/SignUp');
+          navigate("/SignUp");
         }}
-        src={'img/signUp.png'}
-        alt='signUpimage'
+        src={"img/signUp.png"}
+        alt="signUpimage"
       />
       <Copyright />
     </SwholeDiv>

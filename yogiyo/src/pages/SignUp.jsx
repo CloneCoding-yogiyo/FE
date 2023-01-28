@@ -100,7 +100,7 @@ export default function SignUp() {
       try {
         await axios({
           method: "post",
-          url: "http://3.36.130.126/users/signup",
+          url: " http://jsmtmt.shop/users/signup",
           data: { username: username, email: email, password: password },
         }).then((res) => {
           console.log("response:", res);

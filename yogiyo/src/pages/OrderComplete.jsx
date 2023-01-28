@@ -21,10 +21,7 @@ export default function OrderComplete() {
         {/* ///여기에 유저정보 어떻게 넣는지 모르겠숨다// */}
         <SorderDetail>
           <SorderDoneUsername>...이채정고객님 </SorderDoneUsername>
-          <SorderDone>
-            {" "}
-            {param.menuName}에서의 주문이 완료되었습니다!
-          </SorderDone>{" "}
+          <SorderDone>{param.Id}에서의 주문이 완료되었습니다!</SorderDone>{" "}
           <SMenuandTotal>
             <SMenuh3>주문 내역</SMenuh3>
             {/* 맵돌림 */}

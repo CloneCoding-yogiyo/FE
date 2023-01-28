@@ -12,14 +12,14 @@ export default function Store() {
   //FIXME:
 
   const fetchTodos = async () => {
-    // const { data } = await axios.get('http://3.36.130.126/stores', {
-    //   headers: { Authorization: localStorage.getItem('Authorization') },
-    // });
-    // setStores(data.data);//서버 연결시..
+    const { data } = await axios.get(" http://jsmtmt.shop/Id", {
+      headers: { Authorization: localStorage.getItem("Authorization") },
+    });
+    setStores(data.data); //서버 연결시..
 
-    const { data } = await axios.get("http://localhost:3001/Store"); //로컬
-    setStores(data); //로컬...
-    console.log(data);
+    // const { data } = await axios.get("http://localhost:3001/Store"); //로컬
+    // setStores(data); //로컬...
+    // console.log(data);
   };
 
   useEffect(() => {
@@ -30,7 +30,6 @@ export default function Store() {
 
   return (
     <div>
-      요기요 등록음식점
       <StBoxs>
         {stores?.map((store) => {
           // console.log(store);
@@ -47,8 +46,8 @@ export default function Store() {
                 ></img> */}
               <div>이미지</div>
               <div>
-                <p>{store.menuName}</p>
-                <p>{store.price}</p>
+                <p>{store.storeName}</p>
+                <p>{store.score}</p>
               </div>
             </StBox>
           );
