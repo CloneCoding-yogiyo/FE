@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import { useNavigate } from 'react-router';
 
 export default function Store() {
   //조회...
@@ -12,8 +12,8 @@ export default function Store() {
   //FIXME:
 
   const fetchTodos = async () => {
-    const { data } = await axios.get(" http://jsmtmt.shop/Id", {
-      headers: { Authorization: localStorage.getItem("Authorization") },
+    const { data } = await axios.get(' http://jsmtmt.shop/stores', {
+      headers: { Authorization: localStorage.getItem('Authorization') },
     });
     setStores(data.data); //서버 연결시..
 
@@ -37,7 +37,7 @@ export default function Store() {
             <StBox
               key={store.id}
               onClick={() => {
-                navigate(`/StoreList/${store.menuName}`);
+                navigate(`/StoreList/${store.id}`);
               }}
             >
               {/* <img
