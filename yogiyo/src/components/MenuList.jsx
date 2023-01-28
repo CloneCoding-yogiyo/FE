@@ -48,7 +48,10 @@ export default function Menu() {
 
   return (
     <div>
-      요기요 등록음식점
+      <StMenuBox>
+        <div>메뉴</div>
+        <div>리뷰</div>
+      </StMenuBox>
       <StBoxs>
         {stores?.map((store) => {
           // console.log(store);
@@ -83,8 +86,6 @@ const StBoxs = styled.div`
   justify-content: center;
   margin-top: 15px;
   text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
 `;
 
 const StBox = styled.div`
@@ -93,12 +94,20 @@ const StBox = styled.div`
   text-align: center;
   align-items: center;
   cursor: pointer;
+  margin-top: -1px;
+  width: 680px;
+  height: 106px;
+  border: 1px solid #d9d9d9;
+`;
 
-  margin-top: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  width: 488px;
+const StMenuBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: -1px;
+  width: 680px;
   height: 106px;
   border: 1px solid #d9d9d9;
 `;
