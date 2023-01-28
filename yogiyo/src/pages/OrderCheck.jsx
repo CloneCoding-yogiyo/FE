@@ -24,8 +24,11 @@ export default function OrderCheck() {
       </div>
       <StBoxs>
         <StBox>
-          <div className='text-300xl'>롯데리아-진주금산점</div>
+          <StLeftTitleBox className='text-300xl'>
+            롯데리아-진주금산점
+          </StLeftTitleBox>
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
+          <StLeftStoreInfoBox>sss</StLeftStoreInfoBox>
 
           <MenuList></MenuList>
           {/* <Store></Store> */}
@@ -53,33 +56,34 @@ export default function OrderCheck() {
 
 const StBoxs = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
-  align-items: center;
+  align-items: flex-start;
+  margin: auto;
 
-  border: 1px solid #d9d9d9;
+  /* border: 1px solid #d9d9d9; */
 `;
 
 const StBox = styled.div`
-  flex-basis: 70%;
+  margin-right: 10px;
+  width: 680px;
+  height: 100%;
+  border: 1px solid #d9d9d9;
+`;
 
-  margin-top: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  width: 488px;
-  height: 106px;
+const StLeftTitleBox = styled.div`
+  width: 680px;
+  height: 43px;
+  border: 1px solid #d9d9d9;
+`;
+const StLeftStoreInfoBox = styled.div`
+  width: 680px;
+  height: 129px;
   border: 1px solid #d9d9d9;
 `;
 
 const StOrderBox = styled.div`
-  flex-basis: 30%;
-
-  margin-top: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  width: 488px;
+  width: 340px;
   height: 106px;
   border: 1px solid #d9d9d9;
 `;
