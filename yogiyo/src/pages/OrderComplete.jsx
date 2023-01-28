@@ -3,8 +3,10 @@ import { useSelector } from "react-redux";
 import TopBarLogout from "../components/TopBar logout";
 import styled from "styled-components";
 import Copyright from "../components/copyright";
+import { useParams } from "react-router-dom";
 
 export default function OrderComplete() {
+  const param = useParams();
   const globaladdCart = useSelector((state) => state.menuList.menuList);
   let totalprice = 0;
   for (let i = 0; i < globaladdCart.length; i++) {
@@ -19,17 +21,21 @@ export default function OrderComplete() {
         {/* ///여기에 유저정보 어떻게 넣는지 모르겠숨다// */}
         <SorderDetail>
           <SorderDoneUsername>...이채정고객님 </SorderDoneUsername>
-          <SorderDone> 주문이 완료되었습니다!</SorderDone>
-          <SMenuh3>주문 내역</SMenuh3>{" "}
+          <SorderDone>
+            {" "}
+            {param.menuName}에서의 주문이 완료되었습니다!
+          </SorderDone>{" "}
           <SMenuandTotal>
+            <SMenuh3>주문 내역</SMenuh3>
+            {/* 맵돌림 */}
             {globaladdCart?.map((cartMenu) => {
               console.log(globaladdCart);
               return (
                 <>
                   <div>
-                    <SimageMenu
+                    {/* <SimageMenu
                       src={process.env.PUBLIC_URL + "/img/example.png"}
-                    />
+                    /> */}
                     {/* <img
                         src={cartMenu.imageUrl}
                         class='card-img-top'
@@ -41,19 +47,20 @@ export default function OrderComplete() {
                       <Sspan>
                         {cartMenu.menuName} x {cartMenu.amount}개
                       </Sspan>
-                      <Sspan> {cartMenu.price}원</Sspan>
-                    </SorderMenu>{" "}
-                    배달료: 1000원
+                      <Sspan> {cartMenu.price}원</Sspan>{" "}
+                    </SorderMenu>
                   </div>
                 </>
               );
             })}
-
+            <Sdelivery>
+              <Sspan>배달료</Sspan> <Sspan> 1000원</Sspan>
+            </Sdelivery>
             <div>
               <hr />
               <StotalAmount>
                 <Stotal>총 결제금액 </Stotal>
-                <Samount>{totalprice}원</Samount>
+                <Samount>{totalprice + 1000}원</Samount>
               </StotalAmount>
             </div>
           </SMenuandTotal>
@@ -104,13 +111,11 @@ const SorderDone = styled.span`
   font-weight: 700;
   font-size: 30px;
 `;
-const SMenuh3 = styled.h3`
+const SMenuh3 = styled.h2`
   color: rgba(43, 43, 43);
-  border: 1px solid rgba(221, 221, 221);
-
   display: flex;
-  margin: 24px;
-  background-color: rgba(230, 230, 230);
+  margin-left: 15px;
+  margin-bottom: 30px;
 `;
 const StotalAmount = styled.div`
   display: flex;
@@ -145,4 +150,10 @@ const SMenuandTotal = styled.div`
 const Sspan = styled.span`
   margin-bottom: 20px;
   color: rgba(43, 43, 43);
+`;
+const Sdelivery = styled.div`
+  justify-content: space-between;
+  display: flex;
+  margin-left: 30px;
+  margin-right: 30px;
 `;

@@ -28,8 +28,8 @@ const router = createBrowserRouter([
       { index: true, element: <Login /> },
       { path: "SignUp", element: <SignUp /> },
       { path: "StoreList", element: <StoreList /> },
-      { path: "StoreList/:Id", element: <OrderCheck /> },
-      { path: "StoreList/OrderComplete/:Id", element: <OrderComplete /> },
+      { path: "StoreList/:menuName", element: <OrderCheck /> },
+      { path: "StoreList/OrderComplete/:menuName", element: <OrderComplete /> },
     ],
   },
 ]);

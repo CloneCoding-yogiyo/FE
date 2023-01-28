@@ -12,7 +12,7 @@ export default function StoreList() {
       </div>
       <div>
         {/* 가게 리스트 */}
-        <Store></Store>
+        <Store />
       </div>
     </div>
   );

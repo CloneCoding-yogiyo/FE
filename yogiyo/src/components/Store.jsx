@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 export default function Store() {
   //조회...
@@ -17,7 +17,7 @@ export default function Store() {
     // });
     // setStores(data.data);//서버 연결시..
 
-    const { data } = await axios.get('http://localhost:3001/Store'); //로컬
+    const { data } = await axios.get("http://localhost:3001/Store"); //로컬
     setStores(data); //로컬...
     console.log(data);
   };
@@ -38,7 +38,7 @@ export default function Store() {
             <StBox
               key={store.id}
               onClick={() => {
-                navigate(`/StoreList/${store.id}`);
+                navigate(`/StoreList/${store.menuName}`);
               }}
             >
               {/* <img
