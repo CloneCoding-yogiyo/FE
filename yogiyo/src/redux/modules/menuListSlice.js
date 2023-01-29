@@ -3,11 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 //#2. 초기값 설정하기
 const initialState = {
-  menuList: [
-    // {
-    //   count: 1,
-    // },
-  ],
+  menuList: [],
 };
 
 //TODO:  뒤돌아 가기 했을때 이니셜스테이트 값을 액션 하나 추가하기.....
@@ -58,18 +54,14 @@ const menuListSlice = createSlice({
     defaultCart: (state, action) => {
       return {
         ...state,
-        menuList: [
-          // {
-          //   count: 1,
-          // },
-        ],
+        menuList: [],
       };
     },
   },
 });
 
 // #4. 익스포트하기
-export const { addCart, deleteCart, upCountCart, downCountCart } =
+export const { addCart, deleteCart, upCountCart, downCountCart, defaultCart } =
   menuListSlice.actions;
 export default menuListSlice.reducer;
 
