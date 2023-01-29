@@ -19,6 +19,7 @@ export default function Store() {
 
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
     const { data } = await axios.get('http://localhost:3001/Store'); //로컬
+    setFilteredStores(data);
     setStores(data); //로컬...
     console.log(data);
   };
