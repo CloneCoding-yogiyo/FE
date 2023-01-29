@@ -6,10 +6,8 @@ import { useNavigate } from 'react-router';
 export default function Store() {
   //조회...
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
-
+  const [search, setSearch] = useState('');
   const [filteredStores, setFilteredStores] = useState([]);
-
   const [stores, setStores] = useState([]);
 
   const fetchTodos = async () => {
@@ -25,39 +23,30 @@ export default function Store() {
     console.log(data);
   };
 
-  useEffect(() => {
-    setStores();
-    fetchTodos();
-  }, []);
-  // console.log(stores);
-
   //검색기능
   const handleSearch = () => {
-    if (searchTerm.length === 0) {
+    if (search.length === 0) {
       setFilteredStores(stores);
     } else {
       setFilteredStores(
         stores.filter((store) =>
-          store.storeName.toLowerCase().includes(searchTerm.toLowerCase())
+          store.storeName.toLowerCase().includes(search.toLowerCase())
         )
       );
     }
   };
 
-  // useEffect(() => {
-  //   setFilteredStores(
-  //     stores.filter((store) =>
-  //       store.storeName.toLowerCase().includes(searchTerm.toLowerCase())
-  //     )
-  //   );
-  // }, [searchTerm, stores]);
+  useEffect(() => {
+    setStores();
+    fetchTodos();
+  }, []);
 
   return (
     <div>
       <input
         type='text'
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
 
