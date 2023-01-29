@@ -7,6 +7,7 @@ export default function SearchHeader() {
     <div>
       <header>
         <form>
+          ㄴㄴ
           <input
             type='text'
             placeholder='Search...'
