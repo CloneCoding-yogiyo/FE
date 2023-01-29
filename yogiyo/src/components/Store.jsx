@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router';
 export default function Store() {
   //조회...
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const [filteredStores, setFilteredStores] = useState([]);
 
   const [stores, setStores] = useState([]);
 
@@ -28,10 +31,38 @@ export default function Store() {
   }, []);
   // console.log(stores);
 
+  //검색기능
+  const handleSearch = () => {
+    if (searchTerm.length === 0) {
+      setFilteredStores(stores);
+    } else {
+      setFilteredStores(
+        stores.filter((store) =>
+          store.storeName.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
+  };
+
+  // useEffect(() => {
+  //   setFilteredStores(
+  //     stores.filter((store) =>
+  //       store.storeName.toLowerCase().includes(searchTerm.toLowerCase())
+  //     )
+  //   );
+  // }, [searchTerm, stores]);
+
   return (
     <div>
+      <input
+        type='text'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+
       <StBoxs>
-        {stores?.map((store) => {
+        {filteredStores?.map((store) => {
           // console.log(store);
           return (
             <StBox
