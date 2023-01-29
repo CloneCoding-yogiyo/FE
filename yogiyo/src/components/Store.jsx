@@ -9,17 +9,17 @@ export default function Store() {
 
   const [stores, setStores] = useState([]);
 
-  //FIXME:
-
   const fetchTodos = async () => {
-    const { data } = await axios.get(' http://jsmtmt.shop/stores', {
-      headers: { Authorization: localStorage.getItem('Authorization') },
-    });
-    setStores(data.data); //서버 연결시..
+    //FIXME: 서버연결시
+    // const { data } = await axios.get(' http://jsmtmt.shop/stores', {
+    //   headers: { Authorization: localStorage.getItem('Authorization') },
+    // });
+    // setStores(data.data);
 
-    // const { data } = await axios.get("http://localhost:3001/Store"); //로컬
-    // setStores(data); //로컬...
-    // console.log(data);
+    //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
+    const { data } = await axios.get('http://localhost:3001/Store'); //로컬
+    setStores(data); //로컬...
+    console.log(data);
   };
 
   useEffect(() => {
