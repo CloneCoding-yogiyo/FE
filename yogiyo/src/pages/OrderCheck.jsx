@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import TopBarLogout from '../components/TopBar logout';
-import styled from 'styled-components';
-import { useNavigate, useParams } from 'react-router-dom';
-import Menu from '../components/MenuList';
-import CartList from '../components/CartList';
-import MenuList from '../components/MenuList';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import TopBarLogout from "../components/TopBar logout";
+import styled from "styled-components";
+import { useNavigate, useParams } from "react-router-dom";
+import Menu from "../components/MenuList";
+import CartList from "../components/CartList";
+import MenuList from "../components/MenuList";
+import { useSelector } from "react-redux";
+import Copyright from "../components/copyright";
 
 // import Store from '../components/Store';
 
@@ -26,11 +27,11 @@ export default function OrderCheck() {
       <TopBarLogout />
       <StBoxs>
         <StBox>
-          <StLeftTitleBox className='text-300xl'>{a} 가게이름</StLeftTitleBox>
+          <StLeftTitleBox className="text-300xl">{a} 가게이름</StLeftTitleBox>
 
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
           <StLeftStoreInfoBox>
-            <SimageStore src={process.env.PUBLIC_URL + '/img/example.png'} />
+            <SimageStore src={process.env.PUBLIC_URL + "/img/example.png"} />
             <div>
               <div>별점</div>
               <div>최소주문금액</div>
@@ -66,6 +67,7 @@ export default function OrderCheck() {
           </SOrderConfirm>
         </SCartArea>
       </StBoxs>
+      <Copyright />
     </SwholeDiv>
   );
 }

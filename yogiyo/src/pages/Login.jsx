@@ -42,7 +42,7 @@ export default function Login() {
         });
       navigate(`/StoreList`);
     } catch (error) {
-      if (error.response && error.response.status === 400) {
+      if (error.response && error.response.status === 401) {
         setError("아이디/비밀번호가 올바르지 않습니다.");
       }
     }
