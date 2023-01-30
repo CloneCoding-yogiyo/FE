@@ -47,7 +47,7 @@ const StTopBarBox2 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-weight: bold;
   border: 1px solid #ea7266;
   border-radius: 2px;
 `;
