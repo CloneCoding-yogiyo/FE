@@ -1,58 +1,94 @@
 {
   "Store": [
     {
-      "id": 1,
-      "storeName": "롯데리아",
-      "price": 1000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 1,
+        "imageUrl": "123",
+        "storeName": "햄버거집",
+        "score": 4
+      }
     },
     {
-      "id": 2,
-      "storeName": "맥날",
-      "price": 2000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 2,
+        "imageUrl": "223",
+        "storeName": "피자집",
+        "score": 2
+      }
     },
     {
-      "id": 3,
-      "storeName": "스벅",
-      "price": 3000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 3,
+        "imageUrl": "323",
+        "storeName": "치킨집",
+        "score": 4
+      }
     },
     {
-      "id": 4,
-      "storeName": "도미노피",
-      "price": 4000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 4,
+        "imageUrl": "423",
+        "storeName": "빵집",
+        "score": 4
+      }
     },
     {
-      "id": 5,
-      "storeName": "명륜",
-      "price": 4000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 5,
+        "imageUrl": "523",
+        "storeName": "삼겹살집",
+        "score": 4
+      }
     },
     {
-      "id": 6,
-      "storeName": "반올림",
-      "price": 5000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 6,
+        "imageUrl": "523",
+        "storeName": "신림백순대",
+        "score": 4
+      }
     },
     {
-      "id": 7,
-      "storeName": "맘터",
-      "price": 5000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 7,
+        "imageUrl": "623",
+        "storeName": "곱창집",
+        "score": 4
+      }
     },
     {
-      "id": 8,
-      "storeName": "삼겹",
-      "price": 6000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 8,
+        "imageUrl": "723",
+        "storeName": "분식집",
+        "score": 1
+      }
     },
     {
-      "id": 9,
-      "storeName": "신림백순대",
-      "price": 7000,
-      "amount": 1
+      "status": 200,
+      "message": "가게 전체 조회 완료",
+      "data": {
+        "id": 9,
+        "imageUrl": "823",
+        "storeName": "김지석^^",
+        "score": 5
+      }
     }
   ],
 

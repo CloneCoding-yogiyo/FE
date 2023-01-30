@@ -19,8 +19,8 @@ export default function Store() {
 
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
     const { data } = await axios.get('http://localhost:3001/Store'); //로컬
-    setFilteredStores(data);
-    setStores(data); //로컬...
+    setFilteredStores(data.map((item) => item.data));
+    setStores(data.map((item) => item.data)); //로컬...
     console.log(data);
   };
 
@@ -28,6 +28,7 @@ export default function Store() {
   const handleSearch = () => {
     if (search.length === 0) {
       setFilteredStores(stores);
+      console.log(setFilteredStores(stores));
     } else {
       setFilteredStores(
         stores.filter((store) =>
@@ -65,7 +66,7 @@ export default function Store() {
                   src={store.imageUrl}
                   alt='...'
                 ></img> */}
-              <div>이미지</div>
+              <div>{store.imageUrl}</div>
               <div>
                 <p>{store.storeName}</p>
                 <p>{store.score}</p>
