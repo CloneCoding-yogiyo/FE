@@ -72,12 +72,9 @@ export default function Login() {
         </SdivautoLogin>
         <Sbutton
           type="submit"
-          // onClick={() => {
-          //   navigate(`/StoreList`);
-
-          //   // onSubmit();
-          //   // window.location.replace("/");
-          // }}
+          onClick={() => {
+            navigate(`/StoreList`);
+          }}
         >
           로그인
         </Sbutton>
