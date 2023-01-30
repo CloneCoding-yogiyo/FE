@@ -12,18 +12,20 @@ export default function Store() {
 
   const fetchTodos = async () => {
     //FIXME: 서버연결시
-    // const { data } = await axios.get(' http://jsmtmt.shop/stores', {
+    // const { data } = await axios.get('http://jsmtmt.shop/stores', {
     //   headers: { Authorization: localStorage.getItem('Authorization') },
     // });
-    // setStores(data.data);
-
+    // setFilteredStores(data.map((item) => item.data));
+    // setStores(data.map((item) => item.data)); //로컬...
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
 
     const { data } = await axios.get('http://localhost:3001/Store'); //로컬
     setFilteredStores(data.map((item) => item.data));
     setStores(data.map((item) => item.data)); //로컬...
-
     console.log(data);
+    const a = data.map((item) => item.data);
+    console.log(data.map((item) => item.data));
+    console.log(a.map((item) => item.data));
   };
 
   //검색기능

@@ -9,10 +9,10 @@ export default function Menu() {
   //조회...
   // const navigate = useNavigate();
   const [stores, setStores] = useState(null);
+  const [StoreName, setStoreName] = useState(null);
 
   //추가 기능.
   const dispatch = useDispatch();
-  const [menuLists, setMenuLists] = useState(null);
 
   const [addedIds, setAddedIds] = useState([]);
   //FIXME:
@@ -36,8 +36,12 @@ export default function Menu() {
   const fetchTodos = async () => {
     const { data } = await axios.get('http://localhost:3001/MenuList');
     // const { data } = await axios.get('http://3.36.130.126/stores');
-    console.log(data);
-    setStores(data);
+    // console.log(data.storeMenu);
+    console.log(data.map((item) => item.data));
+
+    setStores(data.map((item) => item.data)); //로컬...
+
+    setStoreName(data.map((item) => item.data));
   };
 
   useEffect(() => {
@@ -49,6 +53,12 @@ export default function Menu() {
   return (
     <div>
       <StMenuBox>
+        <div>
+          {/* {StoreName?.map((StoreName) => {
+            return StoreName.StoreName;
+          })}
+          ss */}
+        </div>
         <div>메뉴</div>
         <div>리뷰s</div>
       </StMenuBox>
