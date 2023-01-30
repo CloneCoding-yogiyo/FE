@@ -12,21 +12,28 @@ export default function Store() {
 
   const fetchTodos = async () => {
     //FIXME: 서버연결시
-    // const { data } = await axios.get('http://jsmtmt.shop/stores', {
-    //   headers: { Authorization: localStorage.getItem('Authorization') },
-    // });
+    const { data } = await axios.get('http://jsmtmt.shop/stores', {
+      headers: { Authorization: localStorage.getItem('Authorization') },
+    });
     // setFilteredStores(data.map((item) => item.data));
     // setStores(data.map((item) => item.data)); //로컬...
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
 
-    const { data } = await axios.get('http://localhost:3001/Store'); //로컬
-    setFilteredStores(data.map((item) => item.data));
-    setStores(data.map((item) => item.data)); //로컬...
-    console.log(data);
+    // const { data } = await axios.get('http://localhost:3001/Store'); //로컬
+    // setFilteredStores(data.map((item) => item.data));
+    // setStores(data.map((item) => item.data)); //로컬...
+    // const a = data.map((item) => item.data);
+    // console.log(a[0]);
 
-    console.log(data.map((item) => item.data));
-    const a = data.map((item) => item.data);
-    console.log(a.map((item) => item.data));
+    //FIXME:이게 서버찐..
+    console.log(data.data);
+    setFilteredStores(data.data);
+
+    // console.log(data[0].data);
+    // setFilteredStores(data[0].data);
+    // setStores(data[0].data); //로컬...
+
+    // console.log(a.map((item) => item.data));
   };
 
   //검색기능
