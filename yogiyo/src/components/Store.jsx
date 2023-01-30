@@ -18,9 +18,11 @@ export default function Store() {
     // setStores(data.data);
 
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
+
     const { data } = await axios.get('http://localhost:3001/Store'); //로컬
     setFilteredStores(data.map((item) => item.data));
     setStores(data.map((item) => item.data)); //로컬...
+
     console.log(data);
   };
 
@@ -45,13 +47,15 @@ export default function Store() {
 
   return (
     <div>
-      <input
-        type='text'
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-
+      <Ssearch>
+        <SsearchInput
+          type='text'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder='검색어를 입력해주세요. '
+        />
+        <SsearchButton onClick={handleSearch}>검색</SsearchButton>
+      </Ssearch>
       <StBoxs>
         {filteredStores?.map((store) => {
           // console.log(store);
@@ -96,12 +100,49 @@ const StBox = styled.div`
   text-align: center;
   align-items: center;
   cursor: pointer;
-
+  background-color: rgba(255, 255, 255);
   margin-top: 15px;
   margin-left: 5px;
   margin-right: 15px;
-
   width: 488px;
   height: 106px;
   border: 1px solid #d9d9d9;
+  font-size: 18px;
+`;
+const Ssearch = styled.div`
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(./img/chicken.jpeg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+const SsearchInput = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 380px;
+  height: 40px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 15px;
+`;
+const SsearchButton = styled.button`
+  border: none;
+  width: 60px;
+  height: 42px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgba(255, 132, 0);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
 `;
