@@ -3,7 +3,7 @@
     {
       "status": 200,
       "message": "가게 전체 조회 완료",
-<<<<<<< HEAD
+
       "data": [
         {
           "id": 1,
@@ -60,104 +60,6 @@
           "score": 5
         }
       ]
-=======
-      "data": {
-        "id": 1,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/restaurant_logos/스탁_20190801_DHK촬영_마라탕_Top01_300x300_qSHBO5q.jpg",
-        "storeName": "사천마라탕-본점",
-        "score": 4
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 2,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/restaurant_logos/업체자체_20201021_501539_탕화쿵푸마라탕-대림점_대표사진_300x300.jpg",
-        "storeName": "탕화쿵푸마라탕-대림점",
-        "score": 2
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 3,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/franchise_logos/미스터보쌈_20180823_Franchise이미지약정서_crop_200x200.jpg",
-        "storeName": "미스터보쌈-서울대점",
-        "score": 4
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 4,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/franchise_logos/도미노피자_20190102_Franchise이미지약정서_crop_200x200.jpg",
-        "storeName": "도미노피자-독산난곡점",
-        "score": 4
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 5,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/restaurant_logos/업체자체_20191022_252026_스시앤-구로점_대표사진_200x200_9rUpzoF.jpg",
-        "storeName": "스시앤-구로점",
-        "score": 4
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 6,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/franchise_logos/20220304100524385306_파파존스_20220304_Franchise_crop_200x200.jpg",
-        "storeName": "파파존스피자-신림점",
-        "score": 4
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 7,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/restaurant_logos/20220419152132217775_업체자체_20220419_1087401_탕화쿵푸마라탕-대방점_대표사진_300x300.jpg",
-        "storeName": "탕화쿵푸마라탕-난곡점",
-        "score": 4
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 8,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/franchise_logos/20221012182725746855_원할머니보쌈-OD_20221012_Franchise_crop_300x300.jpg",
-        "storeName": "원할머니보쌈-신림역점",
-        "score": 1
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 9,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/franchise_logos/처갓집치킨_20151228_Franchise이미지약정서_crop_200x200_ZaH9UvS.jpg",
-        "storeName": "처갓집양념치킨-신림역점",
-        "score": 5
-      }
-    },
-    {
-      "status": 200,
-      "message": "가게 전체 조회 완료",
-      "data": {
-        "id": 10,
-        "imageUrl": "https://rev-static.yogiyo.co.kr/franchise_logos/푸라닭_20211111_Franchise_crop_200x200.jpg",
-        "storeName": "푸라닭-서림점",
-        "score": 5
-      }
->>>>>>> 43567be30321f6bcc7bc64d6742a378acc50a2cb
     }
   ],
 
