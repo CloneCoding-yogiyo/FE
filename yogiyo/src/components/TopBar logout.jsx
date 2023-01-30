@@ -4,6 +4,13 @@ import styled from "styled-components";
 
 export default function TopBarLogout() {
   const navigate = useNavigate();
+
+  function handleLogout() {
+    const authorization = localStorage.getItem("Authorization");
+    localStorage.clear(authorization);
+    navigate("/");
+  }
+
   return (
     <StTopBarBoxs>
       <StTopBarBox1
@@ -17,7 +24,7 @@ export default function TopBarLogout() {
         />
       </StTopBarBox1>
 
-      <StTopBarBox2> 로그아웃 </StTopBarBox2>
+      <StTopBarBox2 onClick={handleLogout}> 로그아웃 </StTopBarBox2>
     </StTopBarBoxs>
   );
 }

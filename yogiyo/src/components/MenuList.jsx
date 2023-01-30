@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { addCart } from '../redux/modules/menuListSlice';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/modules/menuListSlice";
 // import { addCart } from '../redux/modules/menuListSlice';
 export default function Menu() {
   //조회...
@@ -27,14 +27,14 @@ export default function Menu() {
   };
   const incrementAmount = (id) => {
     return {
-      type: 'increment',
+      type: "increment",
       payload: id,
     };
   };
 
   //FIXME:
   const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3001/MenuList');
+    const { data } = await axios.get("http://localhost:3001/MenuList");
     // const { data } = await axios.get('http://3.36.130.126/stores');
     // console.log(data.storeMenu);
     console.log(data.map((item) => item.data));
@@ -60,7 +60,7 @@ export default function Menu() {
           ss */}
         </div>
         <div>메뉴</div>
-        <div>리뷰s</div>
+        <div>리뷰 (이거 할건가요 진짜롱?)</div>
       </StMenuBox>
       <StBoxs>
         {stores?.map((store) => {
@@ -76,11 +76,11 @@ export default function Menu() {
                   src={store.imageUrl}
                   alt='...'
                 ></img> */}
-              <div>이미지</div>
               <div>
-                <p>{store.menuName}</p>
+                <SMenuname>{store.menuName}</SMenuname>
                 <p>{store.price}</p>
-              </div>
+              </div>{" "}
+              <SimageMenu src={process.env.PUBLIC_URL + "/img/example.png"} />
             </StBox>
           );
         })}
@@ -96,9 +96,11 @@ const StBoxs = styled.div`
   justify-content: center;
   margin-top: 15px;
   text-align: center;
+  background-color: white;
 `;
 
 const StBox = styled.div`
+  padding: 10px;
   display: flex;
   justify-content: flex-start;
   text-align: center;
@@ -106,8 +108,9 @@ const StBox = styled.div`
   cursor: pointer;
   margin-top: -1px;
   width: 680px;
-  height: 106px;
+  height: 90px;
   border: 1px solid #d9d9d9;
+  justify-content: space-between;
 `;
 
 const StMenuBox = styled.div`
@@ -118,6 +121,14 @@ const StMenuBox = styled.div`
   cursor: pointer;
   margin-top: -1px;
   width: 680px;
-  height: 106px;
+  height: 40px;
   border: 1px solid #d9d9d9;
+  background-color: white;
+`;
+const SimageMenu = styled.img`
+  height: 100px;
+  width: 100px;
+`;
+const SMenuname = styled.span`
+  font-weight: bold;
 `;
