@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopBarLogout from "../components/TopBar logout";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
@@ -16,17 +16,17 @@ export default function OrderCheck() {
   for (let i = 0; i < globaladdCart.length; i++) {
     totalprice = totalprice + globaladdCart[i].price * globaladdCart[i].amount;
   }
+
   const navigate = useNavigate();
   const param = useParams();
-  console.log(param);
+  const a = param.Id;
+
   return (
     <SwholeDiv>
       <TopBarLogout />
       <StBoxs>
         <StBox>
-          <StLeftTitleBox className="text-300xl">
-            롯데리아-진주금산점
-          </StLeftTitleBox>
+          <StLeftTitleBox className="text-300xl">{a} 가게이름</StLeftTitleBox>
 
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
           <StLeftStoreInfoBox>

@@ -35,9 +35,10 @@ export default function Login() {
             "Authorization",
             res.headers.get("Authorization")
           );
-          // JSON.parse(
-          //   localStorage.setItem("Username", res.headers.get("Username"))
-          // );
+          console.log(res);
+          const username = res.data.username;
+          console.log(username);
+          localStorage.setItem("Username", username);
         });
       navigate(`/StoreList`);
     } catch (error) {
@@ -84,7 +85,7 @@ export default function Login() {
           로그인
         </Sbutton>
         <SerrorDiv>
-          <span class="error">{error}</span>
+          <span className="error">{error}</span>
         </SerrorDiv>
       </SSignupForm>{" "}
       <Simage

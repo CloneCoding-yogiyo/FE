@@ -21,7 +21,7 @@ export default function Store() {
     const { data } = await axios.get("http://localhost:3001/Store"); //로컬
     setFilteredStores(data.map((item) => item.data));
     setStores(data.map((item) => item.data)); //로컬...
-
+    //리덕스에 저장. useState말고//
     console.log(data);
   };
 
@@ -40,13 +40,15 @@ export default function Store() {
   };
 
   useEffect(() => {
-    setStores();
+    // setStores();
     fetchTodos();
+    //이름바꾸기
   }, []);
 
   return (
     <div>
       <Ssearch>
+        <img src="./img/chicken.jpeg" />
         <SsearchInput
           type="text"
           value={search}
