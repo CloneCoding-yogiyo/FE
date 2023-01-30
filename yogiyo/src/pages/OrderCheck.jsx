@@ -27,18 +27,8 @@ export default function OrderCheck() {
       <TopBarLogout />
       <StBoxs>
         <StBox>
-          <StLeftTitleBox className="text-300xl">{a} 가게이름</StLeftTitleBox>
-
           {/*FIXME: 메뉴리스트들이 붙혀질것.. */}
-          <StLeftStoreInfoBox>
-            <SimageStore src={process.env.PUBLIC_URL + "/img/example.png"} />
-            <div>
-              <div>별점</div>
-              <div>최소주문금액</div>
-              <div>신용카드,현금,요기서 결제</div>
-              <div>배달시간35분~45분</div>
-            </div>
-          </StLeftStoreInfoBox>
+
           <MenuList />
         </StBox>
         <SCartArea>
@@ -100,30 +90,6 @@ const SorderList = styled.div`
   font-weight: bold;
 `;
 
-const StLeftTitleBox = styled.div`
-  width: 680px;
-  height: 43px;
-  border: 1px solid #d9d9d9;
-  margin-top: 10px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const StLeftStoreInfoBox = styled.div`
-  margin-top: -1px;
-  padding-left: 7px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-  width: 673px;
-  height: 129px;
-  border: 1px solid #d9d9d9;
-  gap: 10px;
-  font-size: 14px;
-  background-color: white;
-`;
-
 const StOrderBox = styled.div`
   width: 340px;
   height: fit-content;
@@ -176,8 +142,4 @@ const Sdelivery = styled.div`
   text-align: right;
   font-size: 15px;
   margin: 10px;
-`;
-const SimageStore = styled.img`
-  height: 120px;
-  width: 120px;
 `;

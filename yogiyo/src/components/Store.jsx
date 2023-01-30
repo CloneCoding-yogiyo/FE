@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 import { ImStarFull } from "react-icons/im";
+
 export default function Store() {
   //조회...
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function Store() {
     // setStores(data.map((item) => item.data)); //로컬...
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
 
-    // const { data } = await axios.get('http://localhost:3001/Store'); //로컬
+    // const { data } = await axios.get("http://localhost:3001/Store"); //로컬
     // setFilteredStores(data.map((item) => item.data));
     // setStores(data.map((item) => item.data)); //로컬...
     // const a = data.map((item) => item.data);
@@ -59,7 +60,6 @@ export default function Store() {
   return (
     <div>
       <Ssearch>
-        {/* <img src='./img/chicken.jpeg' /> */}
         <SsearchInput
           type="text"
           value={search}
