@@ -25,7 +25,7 @@ export default function Login() {
     try {
       // 서버에 email, password를 보내서 요청
 
-      const response = await axios
+      await axios
 
         .post(" http://jsmtmt.shop/users/login", {
           email,

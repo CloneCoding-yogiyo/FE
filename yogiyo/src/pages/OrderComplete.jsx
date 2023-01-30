@@ -20,7 +20,8 @@ export default function OrderComplete() {
         <Simagelogo src={process.env.PUBLIC_URL + "/img/logo-pink.png"} />
         {/* ///여기에 유저정보 어떻게 넣는지 모르겠숨다// */}
         <SorderDetail>
-          <SorderDoneUsername>...이채정고객님 </SorderDoneUsername>
+          <SorderDoneUsername>이채정고객님 </SorderDoneUsername>
+          {/* 여기 가게이름 넣을 수 있음 참 좋겠습니다 */}
           <SorderDone>{param.Id}에서의 주문이 완료되었습니다!</SorderDone>{" "}
           <SMenuandTotal>
             <SMenuh3>주문 내역</SMenuh3>
@@ -128,10 +129,7 @@ const Samount = styled.h4`
 const SorderDetail = styled.div`
   margin-top: 50px;
 `;
-const SimageMenu = styled.img`
-  height: 200px;
-  width: 200px;
-`;
+
 const SorderMenu = styled.div`
   justify-content: space-between;
   display: flex;

@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 export default function Store() {
   //조회...
   const navigate = useNavigate();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [filteredStores, setFilteredStores] = useState([]);
   const [stores, setStores] = useState([]);
 
@@ -19,7 +19,7 @@ export default function Store() {
 
     //FIXME:로컬 연결시.. 악시오스 인스턴스 테스트
 
-    const { data } = await axios.get('http://localhost:3001/Store'); //로컬
+    const { data } = await axios.get("http://localhost:3001/Store"); //로컬
     setFilteredStores(data.map((item) => item.data));
     setStores(data.map((item) => item.data)); //로컬...
 
@@ -49,10 +49,10 @@ export default function Store() {
     <div>
       <Ssearch>
         <SsearchInput
-          type='text'
+          type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder='검색어를 입력해주세요. '
+          placeholder="검색어를 입력해주세요. "
         />
         <SsearchButton onClick={handleSearch}>검색</SsearchButton>
       </Ssearch>
@@ -104,7 +104,7 @@ const StBox = styled.div`
   margin-top: 15px;
   margin-left: 5px;
   margin-right: 15px;
-  width: 488px;
+  width: 440px;
   height: 106px;
   border: 1px solid #d9d9d9;
   font-size: 18px;
