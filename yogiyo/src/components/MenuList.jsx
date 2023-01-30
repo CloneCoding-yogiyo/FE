@@ -51,7 +51,7 @@ export default function Menu() {
     setStoreName(data.data.storeName);
 
     setStores(data.data.storeMenu);
-    console.log(data.data.storeName);
+    console.log(data.data);
   };
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export default function Menu() {
                 <SMenuname>{store.menuName}</SMenuname>
                 <p>{store.price}</p>
               </div>{' '}
-              <SimageMenu src={process.env.PUBLIC_URL + '/img/example.png'} />
+              <SimageMenu src={store.imageUrl} />
             </StBox>
           );
         })}
