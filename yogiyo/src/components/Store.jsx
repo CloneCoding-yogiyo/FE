@@ -23,8 +23,9 @@ export default function Store() {
     setFilteredStores(data.map((item) => item.data));
     setStores(data.map((item) => item.data)); //로컬...
     console.log(data);
-    const a = data.map((item) => item.data);
+
     console.log(data.map((item) => item.data));
+    const a = data.map((item) => item.data);
     console.log(a.map((item) => item.data));
   };
 
