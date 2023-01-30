@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { addCart } from "../redux/modules/menuListSlice";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import { useNavigate, useParams } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { addCart } from '../redux/modules/menuListSlice';
 // import { addCart } from '../redux/modules/menuListSlice';
 export default function Menu() {
+  const param = useParams();
+
   //조회...
   // const navigate = useNavigate();
   const [stores, setStores] = useState(null);
@@ -27,21 +29,29 @@ export default function Menu() {
   };
   const incrementAmount = (id) => {
     return {
-      type: "increment",
+      type: 'increment',
       payload: id,
     };
   };
 
   //FIXME:
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3001/MenuList");
+    //FIXME: 서버연결시
+    const { data } = await axios.get(`http://jsmtmt.shop/stores/${param.Id}`, {
+      headers: { Authorization: localStorage.getItem('Authorization') },
+    });
+
+    // const { data } = await axios.get("http://localhost:3001/MenuList");
     // const { data } = await axios.get('http://3.36.130.126/stores');
     // console.log(data.storeMenu);
-    console.log(data.map((item) => item.data));
 
-    setStores(data.map((item) => item.data)); //로컬...
+    // console.log(data.map((item) => item.data));
+    // setStores(data.map((item) => item.data)); //로컬...
+    // setStoreName(data.map((item) => item.data));
+    setStoreName(data.data.storeName);
 
-    setStoreName(data.map((item) => item.data));
+    setStores(data.data.storeMenu);
+    console.log(data.data.storeName);
   };
 
   useEffect(() => {
@@ -52,13 +62,8 @@ export default function Menu() {
 
   return (
     <div>
+      <div>{StoreName}</div>
       <StMenuBox>
-        <div>
-          {/* {StoreName?.map((StoreName) => {
-            return StoreName.StoreName;
-          })}
-          ss */}
-        </div>
         <div>메뉴</div>
         <div>리뷰 (이거 할건가요 진짜롱?)</div>
       </StMenuBox>
@@ -79,8 +84,8 @@ export default function Menu() {
               <div>
                 <SMenuname>{store.menuName}</SMenuname>
                 <p>{store.price}</p>
-              </div>{" "}
-              <SimageMenu src={process.env.PUBLIC_URL + "/img/example.png"} />
+              </div>{' '}
+              <SimageMenu src={process.env.PUBLIC_URL + '/img/example.png'} />
             </StBox>
           );
         })}

@@ -27,6 +27,7 @@ export default function Store() {
     //FIXME:이게 서버찐..
     console.log(data.data);
     setFilteredStores(data.data);
+    setStores(data.data); //로컬...
 
     // console.log(data[0].data);
     // setFilteredStores(data[0].data);
