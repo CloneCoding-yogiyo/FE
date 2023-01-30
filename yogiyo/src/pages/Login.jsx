@@ -17,28 +17,33 @@ export default function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // Client-side validation
+    // Client-side validation- 둘 중 하나가 공란일 때
     if (!email || !password) {
-      setError("Please enter a username and password");
+      setError("이메일과 패스워드를 모두 입력해주세요!");
       return;
     }
     try {
       // 서버에 email, password를 보내서 요청
 
       await axios
-
         .post(" http://jsmtmt.shop/users/login", {
           email,
           password,
         })
-        .then((res) =>
+        .then((res) => {
           localStorage.setItem(
             "Authorization",
             res.headers.get("Authorization")
-          )
-        );
+          );
+          // JSON.parse(
+          //   localStorage.setItem("Username", res.headers.get("Username"))
+          // );
+        });
+      navigate(`/StoreList`);
     } catch (error) {
-      setError("존재하지 않는 회원정보입니다!");
+      if (error.response && error.response.status === 400) {
+        setError("아이디/비밀번호가 올바르지 않습니다.");
+      }
     }
   }
   // function handleLogout() {
@@ -53,14 +58,14 @@ export default function Login() {
       <SSignupForm onSubmit={handleSubmit}>
         <Simagelogo src={"img/logo-pink.png"} />
         <SInput
-          required
+          // required
           autoFocus
           placeholder="이메일 주소 입력(필수)"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
         <SInputbottom
-          required
+          // required
           type="password"
           placeholder="비밀번호 입력(필수)"
           value={password}
@@ -72,12 +77,15 @@ export default function Login() {
         </SdivautoLogin>
         <Sbutton
           type="submit"
-          onClick={() => {
-            navigate(`/StoreList`);
-          }}
+          // onClick={() => {
+          //   navigate(`/StoreList`);
+          // }}
         >
           로그인
         </Sbutton>
+        <SerrorDiv>
+          <span class="error">{error}</span>
+        </SerrorDiv>
       </SSignupForm>{" "}
       <Simage
         onClick={() => {
@@ -148,4 +156,9 @@ const Simagelogo = styled.img`
   /* align-items: center; */
   display: flex;
   margin: -70px auto 50px auto;
+`;
+const SerrorDiv = styled.div`
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 15px;
 `;

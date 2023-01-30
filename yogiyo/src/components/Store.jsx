@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
-
+import { ImStarFull } from "react-icons/im";
 export default function Store() {
   //조회...
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [filteredStores, setFilteredStores] = useState([]);
   const [stores, setStores] = useState([]);
-
   const fetchTodos = async () => {
     //FIXME: 서버연결시
     // const { data } = await axios.get(' http://jsmtmt.shop/stores', {
@@ -66,14 +65,14 @@ export default function Store() {
                 navigate(`/StoreList/${store.id}`);
               }}
             >
-              {/* <img
-                  src={store.imageUrl}
-                  alt='...'
-                ></img> */}
-              <div>{store.imageUrl}</div>
+              <SStoreimg src={store.imageUrl} alt="..." />
+              {/* <div>{store.imageUrl}</div> */}
               <div>
                 <p>{store.storeName}</p>
-                <p>{store.score}</p>
+                <SStarRate>
+                  {"★".repeat(store.score)}
+                  <Semptystar>{"★".repeat(5 - store.score)}</Semptystar>
+                </SStarRate>
               </div>
             </StBox>
           );
@@ -104,10 +103,12 @@ const StBox = styled.div`
   margin-top: 15px;
   margin-left: 5px;
   margin-right: 15px;
-  width: 440px;
-  height: 106px;
+  width: 430px;
+  height: 96px;
   border: 1px solid #d9d9d9;
   font-size: 18px;
+  padding: 10px;
+  gap: 10px;
 `;
 const Ssearch = styled.div`
   background-image: linear-gradient(
@@ -145,4 +146,14 @@ const SsearchButton = styled.button`
   color: white;
   font-weight: bold;
   font-size: 14px;
+`;
+const SStarRate = styled.span`
+  color: rgba(253, 147, 10);
+`;
+const Semptystar = styled.span`
+  color: rgba(217, 216, 217);
+`;
+const SStoreimg = styled.img`
+  height: 90px;
+  width: 90px;
 `;
