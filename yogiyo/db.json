@@ -2,55 +2,55 @@
   "Store": [
     {
       "id": 1,
-      "storeName": "가게1",
+      "storeName": "롯데리아",
       "price": 1000,
       "amount": 1
     },
     {
       "id": 2,
-      "storeName": "가게2",
+      "storeName": "맥날",
       "price": 2000,
       "amount": 1
     },
     {
       "id": 3,
-      "storeName": "가게3",
+      "storeName": "스벅",
       "price": 3000,
       "amount": 1
     },
     {
       "id": 4,
-      "storeName": "가게4",
-      "price": 4000,
-      "amount": 1
-    },
-    {
-      "id": 4,
-      "storeName": "가게4",
+      "storeName": "도미노피",
       "price": 4000,
       "amount": 1
     },
     {
       "id": 5,
-      "storeName": "가게5",
-      "price": 5000,
-      "amount": 1
-    },
-    {
-      "id": 5,
-      "storeName": "가게5",
-      "price": 5000,
+      "storeName": "명륜",
+      "price": 4000,
       "amount": 1
     },
     {
       "id": 6,
-      "storeName": "가게6",
-      "price": 6000,
+      "storeName": "반올림",
+      "price": 5000,
       "amount": 1
     },
     {
       "id": 7,
-      "storeName": "가게7",
+      "storeName": "맘터",
+      "price": 5000,
+      "amount": 1
+    },
+    {
+      "id": 8,
+      "storeName": "삼겹",
+      "price": 6000,
+      "amount": 1
+    },
+    {
+      "id": 9,
+      "storeName": "신림백순대",
       "price": 7000,
       "amount": 1
     }
