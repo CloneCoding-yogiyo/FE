@@ -50,14 +50,31 @@ export default function OrderCheck() {
             <SOrderBtn
               onClick={() => {
                 navigate(`/StoreList/OrderComplete/${param.Id}`);
-                axios.post(
-                  `http://jsmtmt.shop/stores/${param.Id}`,
-                  globaladdCart,
-                  {},
-                  {
-                    withCredentials: true,
-                  }
-                );
+                axios
+                  .post(
+                    `http://jsmtmt.shop/stores/${param.Id}`,
+                    {
+                      headers: {
+                        Authorization: localStorage.getItem('Authorization'),
+                      },
+                    },
+                    globaladdCart,
+                    {},
+                    {
+                      withCredentials: true,
+                    }
+                  )
+                  .then((res) => {
+                    localStorage.setItem(
+                      'globaladdCart',
+                      res.data.globaladdCart
+                    );
+
+                    localStorage.setItem(
+                      'Authorization',
+                      res.data.authorization
+                    ); // 쿠키에 토큰 저장
+                  });
               }}
             >
               결제하기
