@@ -92,7 +92,7 @@ export default function Login() {
         onClick={() => {
           navigate("/SignUp");
         }}
-        src={"img/signUp.png"}
+        src={process.env.PUBLIC_URL + "/img/signUp.png"}
         alt="signUpimage"
       />
       <Copyright />

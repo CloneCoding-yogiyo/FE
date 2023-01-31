@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useNavigate, useParams } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { addCart } from '../redux/modules/menuListSlice';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate, useParams } from "react-router";
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/modules/menuListSlice";
 
 // import { addCart } from '../redux/modules/menuListSlice';
 export default function Menu() {
@@ -31,7 +31,7 @@ export default function Menu() {
   };
   const incrementAmount = (id) => {
     return {
-      type: 'increment',
+      type: "increment",
       payload: id,
     };
   };
@@ -40,7 +40,7 @@ export default function Menu() {
   const fetchTodos = async () => {
     //FIXME: 서버연결시
     const { data } = await axios.get(`http://jsmtmt.shop/stores/${param.Id}`, {
-      headers: { Authorization: localStorage.getItem('Authorization') },
+      headers: { Authorization: localStorage.getItem("Authorization") },
     });
 
     // const { data } = await axios.get("http://localhost:3001/MenuList");
@@ -66,36 +66,36 @@ export default function Menu() {
   return (
     <div>
       <StBox1>
-        <StLeftTitleBox className='text-300xl'> {StoreName}</StLeftTitleBox>
+        <StLeftTitleBox className="text-300xl"> {StoreName}</StLeftTitleBox>
         <StLeftStoreInfoBox>
           {/* <SimageStore src={process.env.PUBLIC_URL + "/img/example.png"} /> */}
           {/* 이미지 들어갈 자리 */}
-          <SimageStore src={storeImg} alt='...' />
+          <SimageStore src={storeImg} alt="..." />
           <div>
             <SstoreDetail>
-              <span style={{ color: 'rgba(253, 147, 10)' }}>
-                {'★'.repeat(storeScore)}
+              <span style={{ color: "rgba(253, 147, 10)" }}>
+                {"★".repeat(storeScore)}
               </span>
-              <span style={{ color: 'rgba(217, 216, 217)' }}>
-                {'★'.repeat(5 - storeScore)}
+              <span style={{ color: "rgba(217, 216, 217)" }}>
+                {"★".repeat(5 - storeScore)}
               </span>
               <span
                 style={{
-                  color: 'black',
-                  marginLeft: '5px',
+                  color: "black",
+                  marginLeft: "5px",
                 }}
               >
                 {storeScore}.0
               </span>
               <div>
                 <Sspan1>결제</Sspan1>
-                <Sspan style={{ color: 'black' }}>
+                <Sspan style={{ color: "black" }}>
                   신용카드,현금,요기서 결제
                 </Sspan>
               </div>
               <div>
                 <Sspan1> 배달시간</Sspan1>
-                <Sspan style={{ color: 'black' }}>35분~45분</Sspan>
+                <Sspan style={{ color: "black" }}>35분~45분</Sspan>
               </div>
             </SstoreDetail>
           </div>
@@ -120,7 +120,7 @@ export default function Menu() {
 
                 <Sp>{store.price}원</Sp>
                 <Sp2>{store.details}</Sp2>
-              </div>{' '}
+              </div>{" "}
               <SimageMenu src={store.imageUrl} />
             </StBox>
           );
