@@ -45,13 +45,8 @@ ___5. OrderComplete___
 - 해당 Id의 닉네임 보여주기.
 ______________
 # 기술아키텍쳐
-![[Pasted image 20230131232925.png]]
-![[Pasted image 20230131233134.png]]
+![image](https://user-images.githubusercontent.com/86154028/215790154-1deaa310-d061-438f-b194-6b56bf4b711a.png)
+
 ___________
 # 와이어프레임
-![[Pasted image 20230125152322.png]]
-![[Pasted image 20230125152336.png]]
-![[Pasted image 20230125152607.png]]
-![[Pasted image 20230125152700.png]]
-![[Pasted image 20230125152812.png]]
-
+![image](https://user-images.githubusercontent.com/86154028/215790225-596b4d99-e663-4732-8e15-b124bfe8e8b7.png)
