@@ -117,7 +117,8 @@ export default function Menu() {
                 ></img> */}
               <div>
                 <SMenuname>{store.menuName}</SMenuname>
-                <p>{store.price}</p>
+                <Sp>{store.price}원</Sp>
+                <Sp2>{store.details}</Sp2>
               </div>{" "}
               <SimageMenu src={store.imageUrl} />
             </StBox>
@@ -142,12 +143,12 @@ const StBox = styled.div`
   padding: 10px;
   display: flex;
   justify-content: flex-start;
-  text-align: center;
+  text-align: left;
   align-items: center;
   cursor: pointer;
   margin-top: -1px;
   width: 680px;
-  height: 90px;
+  height: fit-content;
   border: 1px solid #d9d9d9;
   justify-content: space-between;
 `;
@@ -166,7 +167,7 @@ const StMenuBox = styled.div`
 `;
 const SimageMenu = styled.img`
   height: 100px;
-  width: 100px;
+  width: 130px;
 `;
 const SMenuname = styled.span`
   font-weight: bold;
@@ -213,4 +214,11 @@ const Sspan = styled.span`
 `;
 const Sspan1 = styled.span`
   font-weight: bold;
+`;
+const Sp = styled.div`
+  margin-top: 10px;
+`;
+const Sp2 = styled.div`
+  color: gray;
+  margin-top: 5px;
 `;
