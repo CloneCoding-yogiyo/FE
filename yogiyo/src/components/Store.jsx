@@ -82,10 +82,14 @@ export default function Store() {
               {/* <div>{store.imageUrl}</div> */}
               <div>
                 <p>{store.storeName}</p>
-                <SStarRate>
-                  {'★'.repeat(store.score)}
-                  <Semptystar>{'★'.repeat(5 - store.score)}</Semptystar>
-                </SStarRate>
+                <Sdiv>
+                  <SpanStar style={{ color: 'rgba(253, 147, 10)' }}>
+                    {'★'.repeat(store.score)}
+                  </SpanStar>
+                  <SpanStar style={{ color: 'rgba(217, 216, 217)' }}>
+                    {'★'.repeat(5 - store.score)}
+                  </SpanStar>
+                </Sdiv>
               </div>
             </StBox>
           );
@@ -125,11 +129,11 @@ const StBox = styled.div`
 `;
 const Ssearch = styled.div`
   background-image: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-  );
-  /* url(./img/chicken.jpeg); */
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(./img/chicken.jpeg);
   background-size: 100%;
   background-repeat: no-repeat;
   height: 150px;
@@ -137,8 +141,6 @@ const Ssearch = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
-  background-image: url('./img/chicken.jpeg');
 `;
 const SsearchInput = styled.input`
   display: flex;
@@ -162,13 +164,16 @@ const SsearchButton = styled.button`
   font-weight: bold;
   font-size: 14px;
 `;
-const SStarRate = styled.span`
-  color: rgba(253, 147, 10);
-`;
-const Semptystar = styled.span`
-  color: rgba(217, 216, 217);
-`;
+
 const SStoreimg = styled.img`
   height: 90px;
+  justify-content: left;
   width: 90px;
+`;
+const SpanStar = styled.div`
+  text-align: left;
+`;
+const Sdiv = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
