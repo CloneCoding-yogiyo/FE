@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import TopBarLogout from "../components/TopBar logout";
-import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
-import Menu from "../components/MenuList";
-import CartList from "../components/CartList";
-import MenuList from "../components/MenuList";
-import { useSelector } from "react-redux";
-import Copyright from "../components/copyright";
+import React, { useEffect, useState } from 'react';
+import TopBarLogout from '../components/TopBar logout';
+import styled from 'styled-components';
+import { useNavigate, useParams } from 'react-router-dom';
+import Menu from '../components/MenuList';
+import CartList from '../components/CartList';
+import MenuList from '../components/MenuList';
+import { useSelector } from 'react-redux';
+import Copyright from '../components/copyright';
+import axios from 'axios';
 
 // import Store from '../components/Store';
 
@@ -20,7 +21,6 @@ export default function OrderCheck() {
 
   const navigate = useNavigate();
   const param = useParams();
-  const a = param.Id;
 
   return (
     <SwholeDiv>
@@ -50,6 +50,14 @@ export default function OrderCheck() {
             <SOrderBtn
               onClick={() => {
                 navigate(`/StoreList/OrderComplete/${param.Id}`);
+                axios.post(
+                  `http://jsmtmt.shop/stores/${param.Id}`,
+                  globaladdCart,
+                  {},
+                  {
+                    withCredentials: true,
+                  }
+                );
               }}
             >
               결제하기
