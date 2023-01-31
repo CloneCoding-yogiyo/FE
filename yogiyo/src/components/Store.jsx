@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { useNavigate } from "react-router";
-import { ImStarFull } from "react-icons/im";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import { useNavigate } from 'react-router';
+import { ImStarFull } from 'react-icons/im';
 
 export default function Store() {
   //조회...
   const navigate = useNavigate();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filteredStores, setFilteredStores] = useState([]);
   const [stores, setStores] = useState([]);
   const fetchTodos = async () => {
     //FIXME: 서버연결시
-    const { data } = await axios.get("http://jsmtmt.shop/stores", {
-      headers: { Authorization: localStorage.getItem("Authorization") },
+    const { data } = await axios.get('http://jsmtmt.shop/stores', {
+      headers: { Authorization: localStorage.getItem('Authorization') },
     });
     // setFilteredStores(data.map((item) => item.data));
     // setStores(data.map((item) => item.data)); //로컬...
@@ -61,10 +61,10 @@ export default function Store() {
     <div>
       <Ssearch>
         <SsearchInput
-          type="text"
+          type='text'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="검색어를 입력해주세요. "
+          placeholder='검색어를 입력해주세요. '
         />
         <SsearchButton onClick={handleSearch}>검색</SsearchButton>
       </Ssearch>
@@ -78,13 +78,13 @@ export default function Store() {
                 navigate(`/StoreList/${store.id}`);
               }}
             >
-              <SStoreimg src={store.imageUrl} alt="..." />
+              <SStoreimg src={store.imageUrl} alt='...' />
               {/* <div>{store.imageUrl}</div> */}
               <div>
                 <p>{store.storeName}</p>
                 <SStarRate>
-                  {"★".repeat(store.score)}
-                  <Semptystar>{"★".repeat(5 - store.score)}</Semptystar>
+                  {'★'.repeat(store.score)}
+                  <Semptystar>{'★'.repeat(5 - store.score)}</Semptystar>
                 </SStarRate>
               </div>
             </StBox>
@@ -125,11 +125,11 @@ const StBox = styled.div`
 `;
 const Ssearch = styled.div`
   background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url(./img/chicken.jpeg);
+    0deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  /* url(./img/chicken.jpeg); */
   background-size: 100%;
   background-repeat: no-repeat;
   height: 150px;
@@ -137,6 +137,8 @@ const Ssearch = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  /* background-color: red; */
+  background-image: url('./img/chicken.jpeg');
 `;
 const SsearchInput = styled.input`
   display: flex;
