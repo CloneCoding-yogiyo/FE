@@ -1,14 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function TopBarLogout() {
   const navigate = useNavigate();
 
   function handleLogout() {
-    const authorization = localStorage.getItem("Authorization");
+    const authorization = localStorage.getItem('Authorization');
     localStorage.clear(authorization);
-    navigate("/");
+    navigate('/');
   }
 
   return (
@@ -19,8 +19,8 @@ export default function TopBarLogout() {
         }}
       >
         <Simage
-          src={process.env.PUBLIC_URL + "/img/logo-yogiyo.png"}
-          alt="logo"
+          src={process.env.PUBLIC_URL + '/img/logo-yogiyo.png'}
+          alt='logo'
         />
       </StTopBarBox1>
 
@@ -57,6 +57,7 @@ const StTopBarBox2 = styled.div`
   font-weight: bold;
   border: 1px solid #ea7266;
   border-radius: 2px;
+  cursor: pointer;
 `;
 const Simage = styled.img`
   height: 40px;
