@@ -119,8 +119,7 @@ const StOrderBox = styled.div`
   width: 340px;
   height: fit-content;
   border: 1px solid #d9d9d9;
-  position: sticky;
-  top: 10px;
+
   background-color: rgba(255, 248, 235);
 `;
 
@@ -141,8 +140,11 @@ const SOrderConfirm = styled.div`
 `;
 const SCartArea = styled.div`
   margin-left: 11px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 10px;
 `;
 const SOrderBtn = styled.button`
   margin-top: 20px;
