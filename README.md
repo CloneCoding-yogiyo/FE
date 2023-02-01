@@ -57,7 +57,7 @@ ___5. OrderComplete___
 - 총 결제금액 보여주기  
 - 해당 Id의 닉네임 보여주기.  
 ______________
-# 기술아키텍쳐
+# 프로젝트아키텍처
 ![image](https://user-images.githubusercontent.com/86154028/215790154-1deaa310-d061-438f-b194-6b56bf4b711a.png)
 
 ___________
