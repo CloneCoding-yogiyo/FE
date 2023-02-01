@@ -1,7 +1,9 @@
 # 요기요
 - 국내 최대규모의 유저를 보유한 배달주문 애플리케이션 요기요를 클론코딩하였습니다.
 
-[👉🏻 요기요 클론 사이트 바로가기](http://chaejung-clonecoding.s3-website.ap-northeast-2.amazonaws.com/)
+[👉🏻 요기요 클론 s3 사이트 바로가기](http://chaejung-clonecoding.s3-website.ap-northeast-2.amazonaws.com/)
+[👉🏻 요기요 클론 vercel 사이트 바로가기](https://yogiyo-clone-coding-red.vercel.app/)
+
 
 [👉🏻 프로젝트 시연 영상 바로가기](https://www.youtube.com/watch?v=7OWFItVEiR4)
 
